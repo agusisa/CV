@@ -5,7 +5,7 @@
 August 2021 / present
 Angular Developer
 
-> I joined our company to work directly for our client Filmtrack. Some of my main activities include the following:
+> I joined to work directly for client Filmtrack. Some of my main activities include the following:
 - Completed training on BE tickets in order to become a full stack developer.
 - Improved my skills in Angular architecture and design patterns oriented to RXJS.
 - Developed a CRM on Angular with akita, a web application aimed at managing contracts and rights.
