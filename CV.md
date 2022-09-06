@@ -1,5 +1,6 @@
 # Agustin Diez Martinez CV
 <img src=".\avatar.jpg" alt="drawing" width="200"/>
+
 ### Frontend developer Senior.
 
 
