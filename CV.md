@@ -108,6 +108,12 @@ Angular 6
 NodeJS
 MongoDB
 ```
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 ## Globant (Software development company)
 August 2016 / March 2017
