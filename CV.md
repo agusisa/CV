@@ -1,7 +1,13 @@
 # Agustin Diez Martinez CV
 <img src=".\avatar.jpg" alt="drawing" width="200"/>
 
-### Frontend developer Senior.
+## Frontend developer Senior.
+
+```
+agustindxm@gmail.com
++54 9 1122965128
+Tandil - Buenos Aires - Argentina (7000)
+```
 
 
 ## Distillery (Software Outsourcing)
