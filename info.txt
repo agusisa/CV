@@ -1,0 +1,9 @@
+Experience with React Context: 1
+Javascript Experience: 8
+ES6 Experience: 5 
+OOP Experience: 8
+Experience with Docker: 1
+Experience with CI/CD: 5
+Experience in Angular: 5
+Experience in Vuejs: 3
+Familiarity with testing Frameworks, ideally Jest: 5
