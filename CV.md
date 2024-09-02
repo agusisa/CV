@@ -62,7 +62,8 @@ My role went beyond teaching; it was about instilling confidence, fostering team
 
 ## Distillery (Software Outsourcing)
 
-August 2021 / present
+August 2021 / Mar 2023
+
 Angular Developer
 
 > I joined to work directly for client Filmtrack. Some of my main activities include the following:
@@ -74,6 +75,9 @@ Angular Developer
 - Migrated a CRM old system that was then used by a couple of clients.
 - Delivered a technical presentation on Angular in order to have basic material for new team-base developers on the best practices and client requirements.
 - Created services based on Akita design patterns.
+  </br>
+  </br>
+  </br>
 
 `Technologies used:`
 
@@ -103,6 +107,9 @@ Front-end Technical Leader
 - Created a brand-new wrapper in JAVA about a Mercado Libre SDK that's runs in ionic-capacitor.
 - Applied SCRUM methodology and held retro, groomings and daily meetings.
 - Performed update demos directly for the clients.
+  </br>
+  </br>
+  </br>
 
 `Technologies used:`
 
@@ -151,6 +158,8 @@ Vue.js developer
 - Worked on a mobile and web app with Vue.js.
 - Consumed BE API with GraphQL.
 - Introduced components into Shopify.
+  </br>
+  </br>
 
 `Technologies used:`
 
