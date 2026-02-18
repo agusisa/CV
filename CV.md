@@ -2,7 +2,7 @@
 
 <img src=".\avatar.jpg" alt="drawing" width="200"/>
 
-## Frontend developer Senior.
+## Frontend Architect & Technical Leader
 
 ```
 agustindxm@gmail.com
@@ -10,9 +10,58 @@ agustindxm@gmail.com
 Tandil - Buenos Aires - Argentina (7000)
 ```
 
+## DualBoot
+
+Nov 2024 - Present
+
+> Frontend Architect · Angular
+> Client: Suzy (AI-powered market research platform)
+
+```
+Serving as Frontend Architect for Suzy, an AI‑powered platform that delivers real‑time consumer insights across quantitative and qualitative workflows with advanced segmentation.
+
+I lead the frontend architecture and delivery of multiple Angular solutions with a small, distributed team. I set technical direction, establish standards and best practices, and mentor engineers through design and implementation to ensure scalability, performance, and maintainability. I also coordinate deployments using the Azure suite, partnering with cross‑functional stakeholders to align timelines, reduce risk, and keep releases predictable.
+```
+
+`Technologies used:`
+
+```
+Angular 20
+Cursor
+Microsoft Azure (Azure DevOps)
+```
+
+  </br>
+
+## Applaudo
+
+Jul 2024 - Nov 2024
+
+> Technical Lead · Angular
+> Government Client: Municipality of Zacatecoluca (El Salvador)
+
+```
+Led a 7-person Frontend team to deliver a Tax Management System for the Municipality of Zacatecoluca, under El Salvador’s Secretariat of Technological Innovation. I drove execution across a three‑month delivery window; the client later paused the initiative due to funding constraints.
+
+I partnered closely with UX and Backend teams to refine requirements, prioritize scope, and maintain delivery velocity. I coordinated deployments with DevOps, upheld engineering best practices (code quality, reviews, CI discipline), and conducted stakeholder demos to align expectations and secure sign‑offs.
+
+This role showcased my leadership, ownership, and ability to guide teams through ambiguity while protecting quality and timelines in a high‑visibility public‑sector environment.
+```
+
+`Technologies used:`
+
+```
+Angular 18
+Ngrx
+Signals
+TypeScript
+Google Cloud Platform (GCP)
+
+```
+
 ## MinData (COMPLEX MADE SIMPLE) · Full-time
 
-Mar 2023 - Present
+Mar 2023 - Jul 2024
 
 > Angular Developer
 > Mindata - RIU Hotels
@@ -51,14 +100,6 @@ Adopting an agile SCRUM-KANBAN methodology, we enhanced learning efficiency and 
 
 My role went beyond teaching; it was about instilling confidence, fostering teamwork, and preparing the interns for immediate contributions to the tech industry. The success of this program was marked by the interns’ ability to independently develop applications, proving their readiness for the professional world.
 ```
-
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
 
 ## Distillery (Software Outsourcing)
 
@@ -158,8 +199,6 @@ Vue.js developer
 - Worked on a mobile and web app with Vue.js.
 - Consumed BE API with GraphQL.
 - Introduced components into Shopify.
-  </br>
-  </br>
 
 `Technologies used:`
 
@@ -199,17 +238,6 @@ Quality Assurance Engineer
 - Created automation test suites and API test.
 - Worked on a project that was designed with automated regression tests on Java microservices for a REST API that was consumed by a mobile app for the client Open Bank.
 - Worked on another project that developed automated regression tests on front-end with selenium for a company employee management project.
-
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
 
 `Technologies used:`
 
