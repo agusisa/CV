@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agustin Diez Martinez · Frontend Architect & Technical Leader</title>
+  <meta name="description" content="Frontend Architect with 11+ years building scalable UI platforms. Angular, React, TypeScript. AI-assisted development with Claude & Cursor.">
+  <meta property="og:title" content="Agustin Diez Martinez — Frontend Architect">
+  <meta property="og:description" content="Frontend Architect with 11+ years building scalable UI platforms for enterprise products across market research, hospitality, healthcare, logistics, and fintech.">
+  <meta property="og:image" content="avatar.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232d6a4f'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='central' text-anchor='middle' fill='white' font-family='system-ui' font-weight='700' font-size='18'%3EA%3C/text%3E%3C/svg%3E">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Agustin Diez Martinez",
+    "jobTitle": "Frontend Architect & Technical Leader",
+    "email": "agustindxm@gmail.com",
+    "url": "https://www.linkedin.com/in/agustin-diez-martinez-76759a60/",
+    "knowsAbout": ["Angular", "React", "Vue", "TypeScript", "RxJS", "NgRx", "Claude", "Cursor", "AI-assisted development", "Frontend Architecture", "Design Systems", "Microsoft Azure", "Google Cloud Platform"],
+    "description": "Frontend Architect with 11+ years building scalable UI platforms. Leads distributed teams, establishes architectural standards, and drives technical strategy with Angular and React.",
+    "sameAs": [
+      "https://www.linkedin.com/in/agustin-diez-martinez-76759a60/",
+      "https://github.com/agusisa"
+    ]
+  }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #f5f3f0;
+      --bg-subtle: #eeebe6;
+      --surface: rgba(255,255,255,0.65);
+      --surface-hover: rgba(255,255,255,0.8);
+      --border: rgba(180,170,155,0.25);
+      --border-light: rgba(190,182,168,0.18);
+      --accent: #6b9e8a;
+      --accent-medium: #7db5a0;
+      --accent-light: rgba(123,189,163,0.3);
+      --accent-bg: rgba(123,189,163,0.08);
+      --accent-surface: rgba(123,189,163,0.15);
+      --text: #3d3d4a;
+      --text-secondary: #5f6370;
+      --text-muted: #8b8f9a;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.03);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.04);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.06);
+      --radius: 14px;
+      --radius-sm: 10px;
+      --sidebar-w: 340px;
+      --purple-bg: rgba(200,185,230,0.12);
+      --purple-border: rgba(180,160,220,0.25);
+      --purple-text: #7c6aad;
+      --orange-bg: rgba(230,180,140,0.1);
+      --orange-border: rgba(220,170,130,0.25);
+      --orange-accent: #c48a5a;
+      --bg-glow: radial-gradient(ellipse at 20% 50%, rgba(123,189,163,0.06) 0%, transparent 60%),
+                 radial-gradient(ellipse at 80% 20%, rgba(180,160,220,0.04) 0%, transparent 50%);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #151520;
+        --bg-subtle: rgba(30,30,45,0.8);
+        --surface: rgba(35,35,55,0.6);
+        --surface-hover: rgba(45,45,70,0.7);
+        --border: rgba(100,105,130,0.2);
+        --border-light: rgba(90,95,120,0.15);
+        --accent: #7ecba4;
+        --accent-medium: #6bbf96;
+        --accent-light: rgba(126,203,164,0.2);
+        --accent-bg: rgba(126,203,164,0.06);
+        --accent-surface: rgba(126,203,164,0.1);
+        --text: #d8dae0;
+        --text-secondary: #9a9db0;
+        --text-muted: #6b6f82;
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.15);
+        --shadow-md: 0 4px 16px rgba(0,0,0,0.2);
+        --shadow-lg: 0 8px 32px rgba(0,0,0,0.3);
+        --purple-bg: rgba(140,120,200,0.08);
+        --purple-border: rgba(140,120,200,0.2);
+        --purple-text: #b8a8e0;
+        --orange-bg: rgba(200,150,100,0.06);
+        --orange-border: rgba(200,150,100,0.18);
+        --orange-accent: #d4a070;
+        --bg-glow: radial-gradient(ellipse at 20% 50%, rgba(126,203,164,0.04) 0%, transparent 60%),
+                   radial-gradient(ellipse at 80% 30%, rgba(100,120,200,0.03) 0%, transparent 50%);
+      }
+    }
+    [data-theme="light"] {
+      --bg: #f0e8dc;
+      --bg-subtle: #e6dace;
+      --surface: rgba(252,245,235,0.75);
+      --surface-hover: rgba(255,250,242,0.9);
+      --border: rgba(170,140,100,0.2);
+      --border-light: rgba(185,155,115,0.14);
+      --accent: #96764a;
+      --accent-medium: #b08c58;
+      --accent-light: rgba(165,130,80,0.28);
+      --accent-bg: rgba(165,130,80,0.08);
+      --accent-surface: rgba(165,130,80,0.14);
+      --text: #3e3428;
+      --text-secondary: #5e5040;
+      --text-muted: #8e8070;
+      --shadow-sm: 0 1px 3px rgba(80,50,20,0.05);
+      --shadow-md: 0 4px 16px rgba(80,50,20,0.06);
+      --shadow-lg: 0 8px 32px rgba(80,50,20,0.08);
+      --purple-bg: rgba(170,140,110,0.1);
+      --purple-border: rgba(170,140,110,0.22);
+      --purple-text: #7a6550;
+      --orange-bg: rgba(200,155,90,0.1);
+      --orange-border: rgba(200,155,90,0.25);
+      --orange-accent: #a86e35;
+      --bg-glow: radial-gradient(ellipse at 10% 30%, rgba(220,175,110,0.15) 0%, transparent 50%),
+                 radial-gradient(ellipse at 90% 20%, rgba(210,160,90,0.1) 0%, transparent 45%),
+                 radial-gradient(ellipse at 50% 80%, rgba(190,145,80,0.06) 0%, transparent 40%);
+    }
+    [data-theme="dark"] {
+      --bg: #151520;
+      --bg-subtle: rgba(30,30,45,0.8);
+      --surface: rgba(35,35,55,0.6);
+      --surface-hover: rgba(45,45,70,0.7);
+      --border: rgba(100,105,130,0.2);
+      --border-light: rgba(90,95,120,0.15);
+      --accent: #7ecba4;
+      --accent-medium: #6bbf96;
+      --accent-light: rgba(126,203,164,0.2);
+      --accent-bg: rgba(126,203,164,0.06);
+      --accent-surface: rgba(126,203,164,0.1);
+      --text: #d8dae0;
+      --text-secondary: #9a9db0;
+      --text-muted: #6b6f82;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.15);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.2);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.3);
+      --purple-bg: rgba(140,120,200,0.08);
+      --purple-border: rgba(140,120,200,0.2);
+      --purple-text: #b8a8e0;
+      --orange-bg: rgba(200,150,100,0.06);
+      --orange-border: rgba(200,150,100,0.18);
+      --orange-accent: #d4a070;
+      --bg-glow: radial-gradient(ellipse at 20% 50%, rgba(126,203,164,0.04) 0%, transparent 60%),
+                 radial-gradient(ellipse at 80% 30%, rgba(100,120,200,0.03) 0%, transparent 50%);
+    }
+
+    html { scroll-behavior: smooth; }
+    html.theme-transition,
+    html.theme-transition *,
+    html.theme-transition *::before,
+    html.theme-transition *::after {
+      transition: background-color 0.5s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease !important;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
+      background-image: var(--bg-glow, none);
+      min-height: 100vh;
+      display: flex;
+      gap: 0;
+    }
+
+    /* ───── Theme toggle ───── */
+    .theme-toggle {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 100;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      transition: all 0.2s ease;
+      color: var(--text-secondary);
+      font-size: 18px;
+    }
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* ───── Sidebar ───── */
+    .sidebar {
+      width: var(--sidebar-w);
+      flex-shrink: 0;
+      padding: 16px 18px 16px 24px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      scrollbar-width: none;
+      align-self: flex-start;
+    }
+    .sidebar::-webkit-scrollbar { width: 0; }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--accent-light);
+      box-shadow: 0 4px 16px rgba(45,106,79,0.15);
+      display: block;
+      margin: 0 auto 12px;
+    }
+    .profile-card h1 {
+      font-size: 1.125rem;
+      font-weight: 800;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 2px;
+      letter-spacing: -0.03em;
+      line-height: 1.3;
+    }
+    .role-title {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-align: center;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid var(--accent-light);
+      letter-spacing: 0.01em;
+    }
+
+    .framework-logos {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .framework-logos img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+    .framework-logos img:hover { opacity: 1; }
+
+    /* About / Summary */
+    .about-block {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 12px;
+      padding: 10px 12px;
+      background: var(--accent-bg);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--accent-light);
+      border: 1px solid var(--accent-light);
+      border-left-width: 3px;
+    }
+
+    /* Contact */
+    .contact-block {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+      padding: 8px 12px;
+      background: var(--surface);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      line-height: 1.7;
+    }
+    .contact-block .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+    }
+    .contact-item.copyable {
+      cursor: pointer;
+      border-radius: 6px;
+      padding: 2px 4px;
+      margin: -2px -4px;
+      transition: background 0.2s ease;
+    }
+    .contact-item.copyable:hover {
+      background: var(--accent-bg);
+    }
+    .copy-toast {
+      position: absolute;
+      right: -4px;
+      top: 50%;
+      transform: translateY(-50%) translateX(4px);
+      font-size: 0.625rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-bg);
+      border: 1px solid var(--accent-light);
+      padding: 2px 8px;
+      border-radius: 4px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+    .contact-block .contact-item svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+
+    /* Social links */
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .social-row {
+      display: flex;
+      gap: 8px;
+    }
+    .social-row a {
+      flex: 1;
+      justify-content: center;
+    }
+    .social-links a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: var(--surface);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: var(--radius-sm);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      border: 1px solid var(--border-light);
+      transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+      background: var(--accent-bg);
+      border-color: var(--accent-light);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+    .social-links svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    .download-btn {
+      justify-content: center;
+      background: var(--accent-surface) !important;
+      border-color: var(--accent-light) !important;
+      color: var(--accent) !important;
+      font-weight: 600 !important;
+    }
+    .download-btn:hover {
+      background: var(--accent) !important;
+      color: white !important;
+      border-color: var(--accent) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 4px 16px rgba(107,158,138,0.2) !important;
+    }
+    .download-btn:hover svg { color: white; }
+    .download-btn svg { color: var(--accent); }
+
+    /* Skills matrix */
+    .sidebar-section {
+      margin-bottom: 12px;
+    }
+    .sidebar-section-title {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .skill-group {
+      margin-bottom: 6px;
+    }
+    .skill-group-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 5px;
+    }
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .skill-pill {
+      font-size: 0.6875rem;
+      padding: 3px 9px;
+      border-radius: 20px;
+      background: var(--accent-bg);
+      color: var(--accent);
+      border: 1px solid var(--accent-light);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* Languages */
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8125rem;
+      padding: 4px 0;
+    }
+    .lang-item .lang-name { font-weight: 500; color: var(--text); }
+    .lang-item .lang-level { color: var(--text-muted); font-size: 0.75rem; }
+
+    /* Music subtle in sidebar */
+    .music-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: var(--orange-bg);
+      border: 1px solid var(--orange-border);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      color: var(--orange-accent);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      margin-bottom: 16px;
+    }
+    .music-link:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+    .music-link svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ───── Timeline ───── */
+    .timeline {
+      position: fixed;
+      left: var(--sidebar-w);
+      top: 0;
+      height: 100vh;
+      width: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .tl-line {
+      position: absolute;
+      top: 15%;
+      bottom: 15%;
+      left: 50%;
+      width: 1.5px;
+      background: var(--border);
+      transform: translateX(-50%);
+      border-radius: 1px;
+    }
+    .tl-node {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex: 1;
+      justify-content: center;
+      text-decoration: none;
+      pointer-events: auto;
+      z-index: 1;
+      cursor: pointer;
+      width: 100%;
+      min-height: 28px;
+    }
+    .tl-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: var(--bg);
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+    }
+    .tl-year {
+      position: absolute;
+      left: calc(50% + 14px);
+      font-size: 0.625rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .tl-node:hover .tl-dot {
+      border-color: var(--accent-medium);
+      background: var(--accent-bg);
+      transform: scale(1.2);
+    }
+    .tl-node:hover .tl-year {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .tl-node.active .tl-dot {
+      border-color: var(--accent);
+      background: var(--accent);
+      transform: scale(1.35);
+      box-shadow: 0 0 0 4px var(--accent-bg), 0 0 12px rgba(107,158,138,0.25);
+    }
+    .tl-node.active .tl-year {
+      opacity: 1;
+      transform: translateX(0);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ───── Main content ───── */
+    .main-content {
+      flex: 1;
+      min-width: 0;
+      max-width: 900px;
+      padding: 24px 40px 80px 20px;
+      margin-left: 48px;
+    }
+
+    /* Experience sections */
+    .experience {
+      margin-bottom: 16px;
+      padding: 22px 24px;
+      background: var(--surface);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--accent-light);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.35s ease;
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    .experience.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .experience:hover {
+      background: var(--surface-hover);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(123,189,163,0.25);
+      border-left-color: var(--accent);
+    }
+
+    .exp-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .company-logos {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .company-logo {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: var(--bg-subtle);
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    .company-logo.hidden { display: none; }
+    .exp-header h2 {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0;
+    }
+    .exp-header .date {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    .exp-role {
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .experience p {
+      margin-bottom: 8px;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      line-height: 1.65;
+    }
+    .experience ul {
+      margin: 8px 0 8px 18px;
+    }
+    .experience li {
+      margin-bottom: 4px;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+    .experience li::marker {
+      color: var(--accent-light);
+    }
+    .highlight {
+      display: inline;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* Tech pills in experience */
+    .tech-row {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+    .tech-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-right: 2px;
+    }
+    .tech-pill {
+      font-size: 0.75rem;
+      color: var(--accent);
+      padding: 3px 10px;
+      background: var(--accent-bg);
+      border-radius: 20px;
+      border: 1px solid var(--accent-light);
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    /* AI tools badge */
+    .ai-badge {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: var(--purple-bg);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--purple-border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .ai-badge .ai-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: var(--purple-text);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .ai-tool {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 8px;
+      background: var(--surface);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text);
+      border: 1px solid var(--purple-border);
+    }
+    .ai-tool img {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+    }
+
+    /* Earlier Career */
+    .earlier-career {
+      margin-bottom: 16px;
+      padding: 22px 24px;
+      background: var(--surface);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: all 0.35s ease;
+    }
+    .earlier-career.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .earlier-career h2 {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .career-entry {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .career-entry:last-child { border-bottom: none; }
+    .career-entry-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+    .career-entry-header .company-logo {
+      width: 28px;
+      height: 28px;
+      padding: 3px;
+    }
+    .career-entry h3 {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .career-entry h3 span {
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+    .career-entry .career-role {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 4px;
+      margin-left: 38px;
+    }
+    .career-entry p {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-left: 38px;
+    }
+    .career-entry .tech-row {
+      margin-left: 38px;
+    }
+
+    /* Testimonials */
+    .testimonial {
+      margin-bottom: 16px;
+      padding: 18px 22px;
+      background: var(--surface);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: all 0.35s ease;
+      position: relative;
+    }
+    .testimonial.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .testimonial::before {
+      content: '\201C';
+      position: absolute;
+      top: 10px;
+      left: 14px;
+      font-size: 2.5rem;
+      line-height: 1;
+      color: var(--accent-light);
+      font-family: Georgia, serif;
+    }
+    .testimonial-text {
+      font-size: 0.8125rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      padding-left: 24px;
+      margin-bottom: 12px;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-left: 24px;
+    }
+    .testimonial-author-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .testimonial-name {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .testimonial-role {
+      font-size: 0.6875rem;
+      color: var(--text-muted);
+    }
+    .testimonial-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: auto;
+      font-size: 0.625rem;
+      color: var(--text-muted);
+      opacity: 0.7;
+    }
+    .testimonial-badge svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    /* Footer */
+    .cv-footer {
+      text-align: center;
+      padding: 32px 0 8px;
+      font-size: 0.6875rem;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+      opacity: 0.6;
+    }
+
+    /* ───── Mobile ───── */
+    @media (max-width: 1024px) {
+      body { flex-direction: column; }
+      .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        overflow-y: visible;
+        position: static;
+        align-self: auto;
+      }
+      .timeline { display: none; }
+      .music-link { margin-bottom: 0; }
+      .main-content {
+        max-width: 100%;
+        padding: 16px 20px 60px;
+        margin-left: 0;
+      }
+      .theme-toggle {
+        top: 12px;
+        right: 12px;
+      }
+    }
+
+    /* ───── Animations ───── */
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .sidebar { animation: slideUp 0.5s ease both; }
+
+    /* ───── Print ───── */
+    @media print {
+      body { display: block; background: white; }
+      .sidebar { display: none; }
+      .timeline { display: none; }
+      .theme-toggle { display: none; }
+      .main-content { max-width: 100%; padding: 0; margin-left: 0; }
+      .experience, .earlier-career {
+        opacity: 1 !important;
+        transform: none !important;
+        break-inside: avoid;
+        box-shadow: none;
+      }
+      .testimonial { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle dark mode">
+    <span id="themeIcon">◑</span>
+  </button>
+
+  <aside class="sidebar">
+    <div class="profile-card">
+      <img class="avatar" src="avatar.jpg" alt="Agustin Diez Martinez">
+      <h1>Agustin Diez Martinez</h1>
+      <span class="role-title">Frontend Architect &amp; Technical Leader</span>
+
+      <div class="framework-logos">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" alt="Angular" title="Angular">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" title="React">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" alt="Vue" title="Vue">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript" title="TypeScript">
+      </div>
+
+      <div class="about-block">
+        Frontend Architect with 11+ years building scalable UI platforms for enterprise products across market research, hospitality, healthcare, logistics, and fintech. I lead distributed teams, establish architectural standards, and drive technical strategy. Currently pioneering AI-assisted workflows to multiply team output.
+      </div>
+
+      <div class="contact-block">
+        <div class="contact-item copyable" id="copyEmail" data-copy="agustindxm@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          agustindxm@gmail.com
+          <span class="copy-toast">Copied!</span>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +54 9 1122965128
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          Tandil, Buenos Aires, Argentina
+        </div>
+      </div>
+
+      <div class="social-links">
+        <div class="social-row">
+          <a href="https://www.linkedin.com/in/agustin-diez-martinez-76759a60/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/agusisa" target="_blank" rel="noopener noreferrer" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <a href="CV-export.html?print=1" class="download-btn" target="_blank" rel="noopener noreferrer" title="Download CV as PDF">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
+        </a>
+      </div>
+
+      <!-- Skills Matrix -->
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Core Skills</div>
+        <div class="skill-group">
+          <div class="skill-group-label">Frontend</div>
+          <div class="skill-pills">
+            <span class="skill-pill">Angular</span>
+            <span class="skill-pill">React</span>
+            <span class="skill-pill">Vue</span>
+            <span class="skill-pill">TypeScript</span>
+            <span class="skill-pill">RxJS</span>
+            <span class="skill-pill">NgRx</span>
+            <span class="skill-pill">Signals</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Architecture</div>
+          <div class="skill-pills">
+            <span class="skill-pill">Design Systems</span>
+            <span class="skill-pill">Component Libraries</span>
+            <span class="skill-pill">Micro-frontends</span>
+            <span class="skill-pill">Nx Monorepo</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Cloud & DevOps</div>
+          <div class="skill-pills">
+            <span class="skill-pill">Azure DevOps</span>
+            <span class="skill-pill">GCP</span>
+            <span class="skill-pill">Jenkins</span>
+            <span class="skill-pill">CI/CD</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">AI Workflow</div>
+          <div class="skill-pills">
+            <span class="skill-pill">Claude</span>
+            <span class="skill-pill">Cursor</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Leadership</div>
+          <div class="skill-pills">
+            <span class="skill-pill">Team Mentoring</span>
+            <span class="skill-pill">SCRUM</span>
+            <span class="skill-pill">Technical Strategy</span>
+            <span class="skill-pill">Code Reviews</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Languages</div>
+        <div class="lang-item">
+          <span class="lang-name">Spanish</span>
+          <span class="lang-level">Native</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">English</span>
+          <span class="lang-level">Professional proficiency</span>
+        </div>
+      </div>
+
+      <!-- Music (subtle) -->
+      <a href="https://soundcloud.com/agustindxm" target="_blank" rel="noopener noreferrer" class="music-link" title="Listen on SoundCloud">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.56 8.87V17h8.76c1.85 0 3.35-1.672 3.35-2.96 0-1.86-1.5-2.96-3.35-2.96-.17 0-.508.03-.838.08C19.128 8.212 16.96 6 14.345 6c-1.05 0-1.97.38-2.785 1.03V8.87zM10 8v9H8.5V9.04L10 8zm-2.5 1.5V17H6V10l1.5-.5zM5 11v6H3.5v-5.5L5 11zm-2.5 1v5H1v-4.5l1.5-.5z"/></svg>
+        Musician — SoundCloud
+      </a>
+    </div>
+  </aside>
+
+  <nav class="timeline" id="timeline">
+    <div class="tl-line"></div>
+    <a href="#dualboot" class="tl-node" data-nav="dualboot"><span class="tl-dot"></span><span class="tl-year">2024</span></a>
+    <a href="#applaudo" class="tl-node" data-nav="applaudo"><span class="tl-dot"></span><span class="tl-year">2024</span></a>
+    <a href="#mindata" class="tl-node" data-nav="mindata"><span class="tl-dot"></span><span class="tl-year">2023</span></a>
+    <a href="#deepcreek" class="tl-node" data-nav="deepcreek"><span class="tl-dot"></span><span class="tl-year">2023</span></a>
+    <a href="#distillery" class="tl-node" data-nav="distillery"><span class="tl-dot"></span><span class="tl-year">2021</span></a>
+    <a href="#trenda" class="tl-node" data-nav="trenda"><span class="tl-dot"></span><span class="tl-year">2018</span></a>
+    <a href="#overactive" class="tl-node" data-nav="overactive"><span class="tl-dot"></span><span class="tl-year">2018</span></a>
+    <a href="#beereal" class="tl-node" data-nav="beereal"><span class="tl-dot"></span><span class="tl-year">2017</span></a>
+    <a href="#earlier" class="tl-node" data-nav="earlier"><span class="tl-dot"></span><span class="tl-year">2014</span></a>
+  </nav>
+
+  <main class="main-content">
+
+    <!-- DualBoot / Suzy -->
+    <section class="experience" id="dualboot">
+      <div class="exp-header">
+        <div class="company-logos">
+          <img class="company-logo" src="assets/dualboot-logo.png" alt="DualBoot">
+          <img class="company-logo" src="https://logos-api.apistemic.com/domain:suzy.com" alt="Suzy" onerror="this.classList.add('hidden')">
+        </div>
+        <div>
+          <h2>DualBoot Partners</h2>
+          <span class="date">Nov 2024 — Present</span>
+        </div>
+      </div>
+      <div class="exp-role">Frontend Architect · Client: Suzy (AI-powered market research platform)</div>
+      <p>Architecting and delivering multiple frontend platforms for <span class="highlight">Suzy's AI-powered market research engine</span> serving enterprise clients with real-time consumer insights across quantitative and qualitative workflows.</p>
+      <p>Leading frontend architecture and delivery with a distributed team across <span class="highlight">Angular and React</span>. Setting technical direction, establishing standards and component libraries, and mentoring engineers on architecture patterns. Pioneering <span class="highlight">AI-assisted development workflows with Claude and Cursor</span> that accelerate feature delivery while maintaining code quality. Coordinating releases through Azure DevOps pipelines, partnering with cross-functional stakeholders to align timelines and keep deployments predictable.</p>
+      <div class="ai-badge">
+        <span class="ai-label">AI-Assisted</span>
+        <span class="ai-tool">
+          <img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=64" alt="Claude" loading="lazy">
+          Claude
+        </span>
+        <span class="ai-tool">
+          <img src="https://www.google.com/s2/favicons?domain=cursor.com&sz=64" alt="Cursor" loading="lazy">
+          Cursor
+        </span>
+      </div>
+      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 20</span><span class="tech-pill">React</span><span class="tech-pill">TypeScript</span><span class="tech-pill">Azure DevOps</span><span class="tech-pill">Claude</span><span class="tech-pill">Cursor</span></div>
+    </section>
+
+    <!-- Applaudo -->
+    <section class="experience" id="applaudo">
+      <div class="exp-header">
+        <img class="company-logo" src="https://logos-api.apistemic.com/domain:applaudo.com" alt="Applaudo" onerror="this.classList.add('hidden')">
+        <div>
+          <h2>Applaudo</h2>
+          <span class="date">Jul 2024 — Nov 2024</span>
+        </div>
+      </div>
+      <div class="exp-role">Technical Lead · Government Client: Municipality of Zacatecoluca (El Salvador)</div>
+      <p>Led a <span class="highlight">7-person frontend team</span> to deliver a Tax Management System for the Municipality of Zacatecoluca under El Salvador's Secretariat of Technological Innovation. Defined architecture, established code review processes, and <span class="highlight">drove execution across a three-month delivery window</span>.</p>
+      <p>Partnered closely with UX and Backend teams to refine requirements, prioritize scope, and maintain delivery velocity. Coordinated deployments with DevOps, conducted <span class="highlight">stakeholder demos</span> to align expectations and secure sign-offs. The client later paused the initiative due to funding constraints.</p>
+      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 18</span><span class="tech-pill">NgRx</span><span class="tech-pill">Signals</span><span class="tech-pill">TypeScript</span><span class="tech-pill">GCP</span></div>
+    </section>
+
+    <div class="testimonial">
+      <p class="testimonial-text">Agustin's expertise in Angular development is truly exceptional, and it significantly contributed to the success of our project. He demonstrated a deep understanding of Angular, showcasing his ability to tackle complex problems with innovative solutions. His coding skills are top-notch.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-author-info">
+          <span class="testimonial-name">Mariano Ariel Rodriguez Sleimen</span>
+          <span class="testimonial-role">Tech Lead at Performance Analytics by AMS</span>
+        </div>
+        <span class="testimonial-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</span>
+      </div>
+    </div>
+
+    <!-- MinData -->
+    <section class="experience" id="mindata">
+      <div class="exp-header">
+        <img class="company-logo" src="https://logos-api.apistemic.com/domain:mindata.es" alt="MinData" onerror="this.classList.add('hidden')">
+        <div>
+          <h2>MinData</h2>
+          <span class="date">Mar 2023 — Jul 2024</span>
+        </div>
+      </div>
+      <div class="exp-role">Angular Engineer · Client: RIU Hotels (Global Hospitality)</div>
+      <p>Ensured platform stability and CI/CD operations across <span class="highlight">8 globally deployed Angular applications</span> for RIU Hotels, one of the world's largest hotel chains. Owned the Jenkins deployment pipeline and coordinated releases across environments using Kanban methodology.</p>
+      <p>Identified and resolved critical production issues, <span class="highlight">reducing user-facing incidents</span> and ensuring reliability across applications serving hotel guests worldwide. Enforced code quality standards through SonarQube and systematic code reviews.</p>
+      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 16</span><span class="tech-pill">Jenkins</span><span class="tech-pill">Nexus</span><span class="tech-pill">SonarQube</span><span class="tech-pill">Java</span></div>
+    </section>
+
+    <div class="testimonial">
+      <p class="testimonial-text">Agustín es un programador con amplios conocimientos de Angular y JavaScript que se caracteriza por su compromiso con la calidad. Además, por sus soft skills, el trabajo diario con él es muy cómodo y constructivo.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-author-info">
+          <span class="testimonial-name">Marcos Méndez Filesi</span>
+          <span class="testimonial-role">Software Architect · Managed Agustin directly</span>
+        </div>
+        <span class="testimonial-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</span>
+      </div>
+    </div>
+
+    <!-- Deep Creek Solutions -->
+    <section class="experience" id="deepcreek">
+      <div class="exp-header">
+        <img class="company-logo" src="https://logos-api.apistemic.com/domain:dedalus.com" alt="Dedalus" onerror="this.classList.add('hidden')">
+        <div>
+          <h2>Deep Creek Solutions</h2>
+          <span class="date">Mar 2023 — Jul 2023</span>
+        </div>
+      </div>
+      <div class="exp-role">Angular Instructor · Client: Dedalus (Medical Software)</div>
+      <p>Designed and delivered a <span class="highlight">4-month Angular training program</span> for Dedalus, a leading medical software company. Mentored 6 interns — University of Malaga students and vocational trainees — covering the complete ecosystem: Routing, Components, Services, Directives, Pipes, RxJS, and NgRx.</p>
+      <p>Led the program using SCRUM-Kanban with iterative development and peer reviews. Interns built individual projects with public APIs and a custom authentication backend. <span class="highlight">100% of participants graduated capable of independent application development.</span></p>
+      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular</span><span class="tech-pill">RxJS</span><span class="tech-pill">NgRx</span><span class="tech-pill">Trello</span></div>
+    </section>
+
+    <!-- Distillery -->
+    <section class="experience" id="distillery">
+      <div class="exp-header">
+        <img class="company-logo" src="https://logos-api.apistemic.com/domain:distillery.com" alt="Distillery" onerror="this.classList.add('hidden')">
+        <div>
+          <h2>Distillery</h2>
+          <span class="date">Aug 2021 — Mar 2023</span>
+        </div>
+      </div>
+      <div class="exp-role">Angular Developer · Client: Filmtrack (Media Entertainment)</div>
+      <p>Built a <span class="highlight">rights management CRM</span> in Angular for Filmtrack, handling contracts and licensing for major media entertainment clients. Led the migration of legacy CRM systems and established Angular architecture patterns adopted across the engineering team.</p>
+      <ul>
+        <li>Established <span class="highlight">Akita state management patterns</span> adopted as the team standard</li>
+        <li>Delivered technical presentations on Angular best practices, becoming the <span class="highlight">onboarding reference for new developers</span></li>
+        <li>Expanded full-stack capabilities by training on backend (C#) tickets</li>
+      </ul>
+      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 11</span><span class="tech-pill">Akita</span><span class="tech-pill">RxJS</span><span class="tech-pill">TypeScript</span><span class="tech-pill">C#</span><span class="tech-pill">MySQL</span><span class="tech-pill">Jasmine</span></div>
+    </section>
+
+    <div class="testimonial">
+      <p class="testimonial-text">I had the pleasure of working with Agustin for almost 2 years at Overactive. Agustin has a natural talent for writing clean, maintainable code and a great ability to solve complex problems. I highly recommend them as a software engineer.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-author-info">
+          <span class="testimonial-name">Daian Scuarissi</span>
+          <span class="testimonial-role">Software Engineer · Worked on same team at Overactive</span>
+        </div>
+        <span class="testimonial-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</span>
+      </div>
+    </div>
+
+    <!-- Trenda Software -->
+    <section class="experience" id="trenda">
+      <div class="exp-header">
+        <img class="company-logo" src="assets/trenda-logo.png" alt="Trenda">
+        <div>
+          <h2>Trenda Software</h2>
+          <span class="date">Mar 2018 — Jan 2021</span>
+        </div>
+      </div>
+      <div class="exp-role">Frontend Technical Leader</div>
+      <p>Led <span class="highlight">two cross-functional teams (9 members total)</span>: 2 FE devs, 2 BE devs, 1 BA, and 2 UX designers. Managed client relationships through regular meetings and feedback cycles, delivering weekly increments using SCRUM-Kanban.</p>
+      <ul>
+        <li>Shipped <span class="highlight">vlife</span>, a mobile app with Ionic 5 from concept to production</li>
+        <li>Built a Java wrapper for the <span class="highlight">Mercado Libre SDK</span> (Ionic-Capacitor integration)</li>
+        <li>Performed client-facing demos and aligned deliverables with expectations across sprints</li>
+      </ul>
+      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 8</span><span class="tech-pill">Ionic 5</span><span class="tech-pill">Node.js</span><span class="tech-pill">Firebase</span></div>
+    </section>
+
+    <div class="testimonial">
+      <p class="testimonial-text">Agustin was a great technical lead. He knew how to meet with each area of the project (BE, UX, PM) to build an organized frontend architecture. He gave me the guidelines to develop in a clear and maintainable way. And also helped me with any problems that came up.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-author-info">
+          <span class="testimonial-name">Nicolás Beltrán Méndez</span>
+          <span class="testimonial-role">Frontend Developer · Reported to Agustin directly</span>
+        </div>
+        <span class="testimonial-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</span>
+      </div>
+    </div>
+
+    <!-- Overactive -->
+    <section class="experience" id="overactive">
+      <div class="exp-header">
+        <img class="company-logo" src="assets/overactive-logo.png" alt="Overactive">
+        <div>
+          <h2>Overactive</h2>
+          <span class="date">Mar 2018 — Feb 2021</span>
+        </div>
+      </div>
+      <div class="exp-role">Frontend Developer · Clients: XPO Logistics, IPTI Healthcare</div>
+      <p>Built <span class="highlight">real-time GPS tracking and IoT monitoring systems</span> for XPO Logistics, then transferred to IPTI Healthcare to implement surgical material tray tracking for US hospitals — applying the same IoT real-time architecture to a healthcare context.</p>
+      <ul>
+        <li>Achieved <span class="highlight">90%+ test coverage</span> with Jasmine; migrated Angular versions with zero downtime</li>
+        <li>Established CI/CD QA automation workflows; resolved SonarQube quality gate issues</li>
+        <li>Documented backend microservices with Swagger; collaborated with UX on feature enhancements</li>
+      </ul>
+      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 8 & 11</span><span class="tech-pill">RxJS</span><span class="tech-pill">NgRx</span><span class="tech-pill">SonarQube</span><span class="tech-pill">Cypress</span><span class="tech-pill">AG-Grid</span><span class="tech-pill">Jasmine</span></div>
+    </section>
+
+    <!-- BeeReal (includes XOOR context) -->
+    <section class="experience" id="beereal">
+      <div class="exp-header">
+        <div class="company-logos">
+          <img class="company-logo" src="https://logos-api.apistemic.com/domain:beerealit.com" alt="BeeReal" onerror="this.classList.add('hidden')">
+          <img class="company-logo" src="assets/xoor-logo.png" alt="XOOR">
+        </div>
+        <div>
+          <h2>BeeReal &amp; XOOR</h2>
+          <span class="date">Mar 2017 — Mar 2018</span>
+        </div>
+      </div>
+      <div class="exp-role">Full Stack Developer · Clients: DHL (Logistics), Honeybee Health</div>
+      <p>Worked with <span class="highlight">DHL on full-stack logistics solutions</span>, participating in architecture discussions to improve truck GPS tracking performance. Also built a cross-platform CRM with Vue.js for Honeybee Health at XOOR, consuming APIs via GraphQL and integrating into Shopify.</p>
+      <ul>
+        <li>Company intranet in Angular 6 with Firebase and Parse</li>
+        <li>Net Ops Assistant: hybrid mobile app (Ionic 3, Node.js, SQL)</li>
+        <li>CAP Reports &amp; Brain Portal: Angular 6 web consoles with Node.js and MongoDB</li>
+      </ul>
+      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 6</span><span class="tech-pill">Ionic 3</span><span class="tech-pill">Vue.js</span><span class="tech-pill">Node.js</span><span class="tech-pill">GraphQL</span><span class="tech-pill">MongoDB</span><span class="tech-pill">Firebase</span></div>
+    </section>
+
+    <div class="testimonial">
+      <p class="testimonial-text">I work with Agustin on development of mobile app for DHL. Agustin is dedicated and resourceful developer. He was able to create the app for Android and iOS and provided an excellent support through build and testing cycle.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-author-info">
+          <span class="testimonial-name">Svitlana Syvetska</span>
+          <span class="testimonial-role">Sr Project Manager at DHL Express · Agustin's client</span>
+        </div>
+        <span class="testimonial-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</span>
+      </div>
+    </div>
+
+    <!-- Earlier Career -->
+    <div class="earlier-career" id="earlier">
+      <h2>Earlier Career · QA &amp; Testing Foundation (2014 — 2017)</h2>
+
+      <div class="career-entry">
+        <div class="career-entry-header">
+          <img class="company-logo" src="https://logos-api.apistemic.com/domain:globant.com" alt="Globant" onerror="this.classList.add('hidden')">
+          <h3>Globant <span>· Aug 2016 — Mar 2017</span></h3>
+        </div>
+        <div class="career-role">QA Engineer · Client: Open Bank (European Banking)</div>
+        <p>Built automation test suites and API tests for Java microservices. Selenium regression testing for frontend applications in a European banking environment.</p>
+        <div class="tech-row"><span class="tech-pill">Java 8</span><span class="tech-pill">Selenium</span><span class="tech-pill">JMeter</span><span class="tech-pill">Jenkins</span><span class="tech-pill">Postman</span></div>
+      </div>
+
+      <div class="career-entry">
+        <div class="career-entry-header">
+          <img class="company-logo" src="assets/technisys-logo.png" alt="Technisys">
+          <h3>Technisys <span>· Jul 2015 — May 2016</span></h3>
+        </div>
+        <div class="career-role">QA Engineer · Financial Services</div>
+        <p>Developed regression automation for financial platforms with Selenium. Built foundational QA expertise in banking that led to the Globant assignment.</p>
+        <div class="tech-row"><span class="tech-pill">Java 8</span><span class="tech-pill">Selenium</span><span class="tech-pill">JUnit</span><span class="tech-pill">Cucumber</span><span class="tech-pill">Jenkins</span></div>
+      </div>
+
+      <div class="career-entry">
+        <div class="career-entry-header">
+          <img class="company-logo" src="https://logos-api.apistemic.com/domain:levinassets.com" alt="Levin Global" onerror="this.classList.add('hidden')">
+          <h3>Tsoft &amp; Levin Global <span>· Jun 2014 — Apr 2015</span></h3>
+        </div>
+        <div class="career-role">Test Analyst → Testing Lead</div>
+        <p>Started as Test Analyst on banking systems, promoted to QA Lead managing testing teams with Scrum. White-box testing, .NET unit tests, incident management via JIRA.</p>
+        <div class="tech-row"><span class="tech-pill">.NET</span><span class="tech-pill">SQL</span><span class="tech-pill">JIRA</span><span class="tech-pill">HP Quality Center</span></div>
+      </div>
+    </div>
+
+    <footer class="cv-footer">
+      Built with code, caffeine, and a little help from AI.
+    </footer>
+
+  </main>
+
+<script>
+(function() {
+  var toggle = document.getElementById('themeToggle');
+  var icon = document.getElementById('themeIcon');
+  var root = document.documentElement;
+  var saved = localStorage.getItem('theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  else root.setAttribute('data-theme', 'light');
+
+  function updateIcon() {
+    var t = root.getAttribute('data-theme');
+    icon.textContent = t === 'dark' ? '☀' : '☾';
+    toggle.title = t === 'dark' ? 'Switch to warm' : 'Switch to dark';
+  }
+  updateIcon();
+
+  toggle.addEventListener('click', function() {
+    root.classList.add('theme-transition');
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateIcon();
+    setTimeout(function() { root.classList.remove('theme-transition'); }, 600);
+  });
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.experience, .earlier-career, .testimonial').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  var sections = document.querySelectorAll('.experience, .earlier-career');
+  var tlNodes = document.querySelectorAll('.tl-node');
+
+  function updateNav() {
+    var scrollY = window.scrollY + 120;
+    var activeId = '';
+    var atBottom = (window.scrollY + window.innerHeight) >= (document.documentElement.scrollHeight - 50);
+    if (atBottom) {
+      activeId = sections[sections.length - 1].id;
+    } else {
+      sections.forEach(function(s) {
+        if (s.offsetTop <= scrollY) activeId = s.id;
+      });
+    }
+    tlNodes.forEach(function(n) {
+      n.classList.toggle('active', n.getAttribute('data-nav') === activeId);
+    });
+  }
+
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        updateNav();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+  updateNav();
+
+  document.querySelectorAll('.copyable').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var text = el.getAttribute('data-copy');
+      var toast = el.querySelector('.copy-toast');
+      navigator.clipboard.writeText(text).then(function() {
+        toast.classList.add('show');
+        setTimeout(function() { toast.classList.remove('show'); }, 1200);
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
