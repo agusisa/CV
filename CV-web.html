@@ -191,6 +191,34 @@
       box-shadow: var(--shadow-lg);
     }
 
+    /* ───── Language toggle ───── */
+    .lang-toggle {
+      position: fixed;
+      top: 64px;
+      right: 16px;
+      z-index: 100;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      transition: all 0.2s ease;
+      color: var(--text-secondary);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      font-family: 'Inter', sans-serif;
+    }
+    .lang-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: var(--shadow-lg);
+    }
+
     /* ───── Sidebar ───── */
     .sidebar {
       width: var(--sidebar-w);
@@ -1022,6 +1050,10 @@
         top: 12px;
         right: 12px;
       }
+      .lang-toggle {
+        top: 58px;
+        right: 12px;
+      }
     }
 
     /* ───── Animations ───── */
@@ -1056,12 +1088,15 @@
   <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle dark mode">
     <span id="themeIcon">◑</span>
   </button>
+  <button class="lang-toggle" id="langToggle" title="Switch language" aria-label="Switch language">
+    <span id="langLabel">EN</span>
+  </button>
 
   <aside class="sidebar">
     <div class="profile-card">
       <img class="avatar" src="avatar.jpg" alt="Agustin Diez Martinez">
       <h1>Agustin Diez Martinez</h1>
-      <span class="role-title">Frontend Architect &amp; Technical Leader</span>
+      <span class="role-title" data-i18n="role-title">Frontend Architect &amp; Technical Leader</span>
 
       <div class="framework-logos">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" alt="Angular" title="Angular">
@@ -1070,8 +1105,8 @@
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript" title="TypeScript">
       </div>
 
-      <div class="about-block">
-        Frontend Architect with 11+ years building scalable UI platforms for enterprise products across market research, hospitality, healthcare, logistics, and fintech. I lead distributed teams, establish architectural standards, and drive technical strategy. Currently pioneering AI-assisted workflows to multiply team output.
+      <div class="about-block" data-i18n="about">
+        Frontend Architect with 11+ years building scalable UI platforms for enterprise products across market research, hospitality, healthcare, logistics, and fintech. I lead distributed teams, establish architectural standards, and drive technical strategy. Currently leveraging AI-assisted development with agentic workflows to deliver sprint-level implementations in days, without compromising code quality or architectural integrity.
       </div>
 
       <div class="contact-block">
@@ -1104,16 +1139,16 @@
         </div>
         <a href="CV-export.html?download=1" class="download-btn" target="_blank" rel="noopener noreferrer" title="Download CV as PDF">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download CV
+          <span data-i18n="download-cv">Download CV</span>
         </a>
       </div>
 
       <!-- Skills Matrix -->
       <div class="sidebar-section">
-        <div class="sidebar-section-title">Core Skills</div>
+        <div class="sidebar-section-title" data-i18n="skills-title">Core Skills</div>
         <div class="skills-grid">
           <div class="skill-row">
-            <span class="skill-row-label">Frontend</span>
+            <span class="skill-row-label" data-i18n="cat-frontend">Frontend</span>
             <div class="skill-row-items">
               <span class="skill-tag">Angular</span>
               <span class="skill-tag">React</span>
@@ -1125,18 +1160,18 @@
             </div>
           </div>
           <div class="skill-row">
-            <span class="skill-row-label">Architecture</span>
+            <span class="skill-row-label" data-i18n="cat-architecture">Architecture</span>
             <div class="skill-row-items">
-              <span class="skill-tag">Design Systems</span>
-              <span class="skill-tag">Component Libraries</span>
-              <span class="skill-tag">Micro-frontends</span>
+              <span class="skill-tag" data-i18n="skill-design-systems">Design Systems</span>
+              <span class="skill-tag" data-i18n="skill-component-libs">Component Libraries</span>
+              <span class="skill-tag" data-i18n="skill-microfrontends">Micro-frontends</span>
               <span class="skill-tag">Nx Monorepo</span>
               <span class="skill-tag">Dev Containers</span>
               <span class="skill-tag">Docker</span>
             </div>
           </div>
           <div class="skill-row">
-            <span class="skill-row-label">DevOps</span>
+            <span class="skill-row-label" data-i18n="cat-devops">DevOps</span>
             <div class="skill-row-items">
               <span class="skill-tag">Azure DevOps</span>
               <span class="skill-tag">GCP</span>
@@ -1145,7 +1180,7 @@
             </div>
           </div>
           <div class="skill-row">
-            <span class="skill-row-label">AI</span>
+            <span class="skill-row-label" data-i18n="cat-ai">AI</span>
             <div class="skill-row-items">
               <span class="skill-tag">Claude</span>
               <span class="skill-tag">Cursor</span>
@@ -1154,23 +1189,23 @@
             </div>
           </div>
           <div class="skill-row">
-            <span class="skill-row-label">Leadership</span>
+            <span class="skill-row-label" data-i18n="cat-leadership">Leadership</span>
             <div class="skill-row-items">
-              <span class="skill-tag">Team Mentoring</span>
+              <span class="skill-tag" data-i18n="skill-mentoring">Team Mentoring</span>
               <span class="skill-tag">SCRUM</span>
-              <span class="skill-tag">Technical Strategy</span>
-              <span class="skill-tag">Code Reviews</span>
+              <span class="skill-tag" data-i18n="skill-tech-strategy">Technical Strategy</span>
+              <span class="skill-tag" data-i18n="skill-code-reviews">Code Reviews</span>
               <span class="skill-tag">Jira</span>
               <span class="skill-tag">Azure Boards</span>
             </div>
           </div>
           <div class="skill-row">
-            <span class="skill-row-label">Ownership</span>
+            <span class="skill-row-label" data-i18n="cat-ownership">Ownership</span>
             <div class="skill-row-items">
-              <span class="skill-tag">Client Demos</span>
-              <span class="skill-tag">Stakeholder Alignment</span>
-              <span class="skill-tag">Release Coordination</span>
-              <span class="skill-tag">Sprint Planning</span>
+              <span class="skill-tag" data-i18n="skill-client-demos">Client Demos</span>
+              <span class="skill-tag" data-i18n="skill-stakeholder">Stakeholder Alignment</span>
+              <span class="skill-tag" data-i18n="skill-release-coord">Release Coordination</span>
+              <span class="skill-tag" data-i18n="skill-sprint-planning">Sprint Planning</span>
             </div>
           </div>
         </div>
@@ -1178,25 +1213,25 @@
 
       <!-- Languages -->
       <div class="sidebar-section">
-        <div class="sidebar-section-title">Languages</div>
+        <div class="sidebar-section-title" data-i18n="languages-title">Languages</div>
         <div class="lang-item">
-          <span class="lang-name">Spanish</span>
-          <span class="lang-level">Native</span>
+          <span class="lang-name" data-i18n="lang-spanish">Spanish</span>
+          <span class="lang-level" data-i18n="lang-native">Native</span>
         </div>
         <div class="lang-item">
-          <span class="lang-name">English</span>
-          <span class="lang-level">Professional proficiency</span>
+          <span class="lang-name" data-i18n="lang-english">English</span>
+          <span class="lang-level" data-i18n="lang-professional">Professional proficiency</span>
         </div>
         <div class="lang-item">
-          <span class="lang-name">Portuguese</span>
-          <span class="lang-level">Conversational</span>
+          <span class="lang-name" data-i18n="lang-portuguese">Portuguese</span>
+          <span class="lang-level" data-i18n="lang-conversational">Conversational</span>
         </div>
       </div>
 
       <!-- Music (subtle) -->
       <a href="https://soundcloud.com/agustindxm" target="_blank" rel="noopener noreferrer" class="music-link" title="Listen on SoundCloud">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.56 8.87V17h8.76c1.85 0 3.35-1.672 3.35-2.96 0-1.86-1.5-2.96-3.35-2.96-.17 0-.508.03-.838.08C19.128 8.212 16.96 6 14.345 6c-1.05 0-1.97.38-2.785 1.03V8.87zM10 8v9H8.5V9.04L10 8zm-2.5 1.5V17H6V10l1.5-.5zM5 11v6H3.5v-5.5L5 11zm-2.5 1v5H1v-4.5l1.5-.5z"/></svg>
-        Musician — SoundCloud
+        <span data-i18n="musician">Musician — SoundCloud</span>
       </a>
     </div>
   </aside>
@@ -1225,14 +1260,14 @@
         </div>
         <div>
           <h2>DualBoot Partners</h2>
-          <span class="date">Nov 2024 — Present</span>
+          <span class="date" data-i18n="dualboot-date">Nov 2024 — Present</span>
         </div>
       </div>
-      <div class="exp-role">Frontend Architect · Client: Suzy (AI-powered market research platform)</div>
-      <p>Architecting and delivering multiple frontend platforms for <span class="highlight">Suzy's AI-powered market research engine</span> serving enterprise clients with real-time consumer insights across quantitative and qualitative workflows.</p>
-      <p>Leading frontend architecture and delivery with a distributed team across <span class="highlight">Angular and React</span>. Setting technical direction, establishing standards and component libraries, and mentoring engineers on architecture patterns. Pioneering <span class="highlight">AI-assisted development workflows with Claude and Cursor</span> that accelerate feature delivery while maintaining code quality. Coordinating releases through Azure DevOps pipelines, partnering with cross-functional stakeholders to align timelines and keep deployments predictable.</p>
+      <div class="exp-role" data-i18n="dualboot-role">Frontend Architect · Client: Suzy (AI-powered market research platform)</div>
+      <p data-i18n="dualboot-p1">Architecting and delivering multiple frontend platforms for <span class="highlight">Suzy's AI-powered market research engine</span> serving enterprise clients with real-time consumer insights across quantitative and qualitative workflows.</p>
+      <p data-i18n="dualboot-p2">Leading frontend architecture and delivery with a distributed team across <span class="highlight">Angular and React</span>. Setting technical direction, establishing standards and component libraries, and mentoring engineers on architecture patterns. Pioneering <span class="highlight">AI-assisted agentic workflows with Claude and Cursor</span> — delivering implementations that previously required multi-sprint cycles in a fraction of the time while maintaining full code quality and architectural coherence. Coordinating releases through Azure DevOps pipelines, partnering with cross-functional stakeholders to align timelines and keep deployments predictable.</p>
       <div class="ai-badge">
-        <span class="ai-label">AI-Assisted</span>
+        <span class="ai-label" data-i18n="ai-assisted">AI-Assisted</span>
         <span class="ai-tool">
           <img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=64" alt="Claude" loading="lazy">
           Claude
@@ -1242,7 +1277,7 @@
           Cursor
         </span>
       </div>
-      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 20</span><span class="tech-pill">React</span><span class="tech-pill">TypeScript</span><span class="tech-pill">Azure DevOps</span><span class="tech-pill">Claude</span><span class="tech-pill">Cursor</span></div>
+      <div class="tech-row"><span class="tech-label" data-i18n="stack-label">Stack</span><span class="tech-pill">Angular 20</span><span class="tech-pill">React</span><span class="tech-pill">TypeScript</span><span class="tech-pill">Azure DevOps</span><span class="tech-pill">Claude</span><span class="tech-pill">Cursor</span></div>
     </section>
 
     <!-- Applaudo -->
@@ -1251,21 +1286,21 @@
         <img class="company-logo" src="https://logos-api.apistemic.com/domain:applaudo.com" alt="Applaudo" onerror="this.classList.add('hidden')">
         <div>
           <h2>Applaudo</h2>
-          <span class="date">Jul 2024 — Nov 2024</span>
+          <span class="date" data-i18n="applaudo-date">Jul 2024 — Nov 2024</span>
         </div>
       </div>
-      <div class="exp-role">Technical Lead · Government Client: Municipality of Zacatecoluca (El Salvador)</div>
-      <p>Led a <span class="highlight">7-person frontend team</span> to deliver a Tax Management System for the Municipality of Zacatecoluca under El Salvador's Secretariat of Technological Innovation. Defined architecture, established code review processes, and <span class="highlight">drove execution across a three-month delivery window</span>.</p>
-      <p>Partnered closely with UX and Backend teams to refine requirements, prioritize scope, and maintain delivery velocity. Coordinated deployments with DevOps, conducted <span class="highlight">stakeholder demos</span> to align expectations and secure sign-offs. The client later paused the initiative due to funding constraints.</p>
-      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 18</span><span class="tech-pill">NgRx</span><span class="tech-pill">Signals</span><span class="tech-pill">TypeScript</span><span class="tech-pill">GCP</span></div>
+      <div class="exp-role" data-i18n="applaudo-role">Technical Lead · Government Client: Municipality of Zacatecoluca (El Salvador)</div>
+      <p data-i18n="applaudo-p1">Led a <span class="highlight">7-person frontend team</span> to deliver a Tax Management System for the Municipality of Zacatecoluca under El Salvador's Secretariat of Technological Innovation. Defined architecture, established code review processes, and <span class="highlight">drove execution across a three-month delivery window</span>.</p>
+      <p data-i18n="applaudo-p2">Partnered closely with UX and Backend teams to refine requirements, prioritize scope, and maintain delivery velocity. Coordinated deployments with DevOps, conducted <span class="highlight">stakeholder demos</span> to align expectations and secure sign-offs. The client later paused the initiative due to funding constraints.</p>
+      <div class="tech-row"><span class="tech-label" data-i18n="stack-label">Stack</span><span class="tech-pill">Angular 18</span><span class="tech-pill">NgRx</span><span class="tech-pill">Signals</span><span class="tech-pill">TypeScript</span><span class="tech-pill">GCP</span></div>
     </section>
 
     <div class="testimonial">
-      <p class="testimonial-text">Agustin's expertise in Angular development is truly exceptional, and it significantly contributed to the success of our project. He demonstrated a deep understanding of Angular, showcasing his ability to tackle complex problems with innovative solutions. His coding skills are top-notch.</p>
+      <p class="testimonial-text" data-i18n="testimonial-mariano">Agustin's expertise in Angular development is truly exceptional, and it significantly contributed to the success of our project. He demonstrated a deep understanding of Angular, showcasing his ability to tackle complex problems with innovative solutions. His coding skills are top-notch.</p>
       <div class="testimonial-author">
         <div class="testimonial-author-info">
           <span class="testimonial-name">Mariano Ariel Rodriguez Sleimen</span>
-          <span class="testimonial-role">Tech Lead at Performance Analytics by AMS</span>
+          <span class="testimonial-role" data-i18n="testimonial-mariano-role">Tech Lead at Performance Analytics by AMS</span>
         </div>
         <span class="testimonial-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</span>
       </div>
@@ -1277,21 +1312,21 @@
         <img class="company-logo" src="https://logos-api.apistemic.com/domain:mindata.es" alt="MinData" onerror="this.classList.add('hidden')">
         <div>
           <h2>MinData</h2>
-          <span class="date">Mar 2023 — Jul 2024</span>
+          <span class="date" data-i18n="mindata-date">Mar 2023 — Jul 2024</span>
         </div>
       </div>
-      <div class="exp-role">Angular Engineer · Client: RIU Hotels (Global Hospitality)</div>
-      <p>Ensured platform stability and CI/CD operations across <span class="highlight">8 globally deployed Angular applications</span> for RIU Hotels, one of the world's largest hotel chains. Owned the Jenkins deployment pipeline and coordinated releases across environments using Kanban methodology.</p>
-      <p>Identified and resolved critical production issues, <span class="highlight">reducing user-facing incidents</span> and ensuring reliability across applications serving hotel guests worldwide. Enforced code quality standards through SonarQube and systematic code reviews.</p>
-      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 16</span><span class="tech-pill">Jenkins</span><span class="tech-pill">Nexus</span><span class="tech-pill">SonarQube</span><span class="tech-pill">Java</span></div>
+      <div class="exp-role" data-i18n="mindata-role">Angular Engineer · Client: RIU Hotels (Global Hospitality)</div>
+      <p data-i18n="mindata-p1">Ensured platform stability and CI/CD operations across <span class="highlight">8 globally deployed Angular applications</span> for RIU Hotels, one of the world's largest hotel chains. Owned the Jenkins deployment pipeline and coordinated releases across environments using Kanban methodology.</p>
+      <p data-i18n="mindata-p2">Identified and resolved critical production issues, <span class="highlight">reducing user-facing incidents</span> and ensuring reliability across applications serving hotel guests worldwide. Enforced code quality standards through SonarQube and systematic code reviews.</p>
+      <div class="tech-row"><span class="tech-label" data-i18n="stack-label">Stack</span><span class="tech-pill">Angular 16</span><span class="tech-pill">Jenkins</span><span class="tech-pill">Nexus</span><span class="tech-pill">SonarQube</span><span class="tech-pill">Java</span></div>
     </section>
 
     <div class="testimonial">
-      <p class="testimonial-text">Agustín es un programador con amplios conocimientos de Angular y JavaScript que se caracteriza por su compromiso con la calidad. Además, por sus soft skills, el trabajo diario con él es muy cómodo y constructivo.</p>
+      <p class="testimonial-text" data-i18n="testimonial-marcos">Agustín es un programador con amplios conocimientos de Angular y JavaScript que se caracteriza por su compromiso con la calidad. Además, por sus soft skills, el trabajo diario con él es muy cómodo y constructivo.</p>
       <div class="testimonial-author">
         <div class="testimonial-author-info">
           <span class="testimonial-name">Marcos Méndez Filesi</span>
-          <span class="testimonial-role">Software Architect · Managed Agustin directly</span>
+          <span class="testimonial-role" data-i18n="testimonial-marcos-role">Software Architect · Managed Agustin directly</span>
         </div>
         <span class="testimonial-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</span>
       </div>
@@ -1303,13 +1338,13 @@
         <img class="company-logo" src="https://logos-api.apistemic.com/domain:dedalus.com" alt="Dedalus" onerror="this.classList.add('hidden')">
         <div>
           <h2>Deep Creek Solutions</h2>
-          <span class="date">Mar 2023 — Jul 2023</span>
+          <span class="date" data-i18n="deepcreek-date">Mar 2023 — Jul 2023</span>
         </div>
       </div>
-      <div class="exp-role">Angular Instructor · Client: Dedalus (Medical Software)</div>
-      <p>Designed and delivered a <span class="highlight">4-month Angular training program</span> for Dedalus, a leading medical software company. Mentored 6 interns — University of Malaga students and vocational trainees — covering the complete ecosystem: Routing, Components, Services, Directives, Pipes, RxJS, and NgRx.</p>
-      <p>Led the program using SCRUM-Kanban with iterative development and peer reviews. Interns built individual projects with public APIs and a custom authentication backend. <span class="highlight">100% of participants graduated capable of independent application development.</span></p>
-      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular</span><span class="tech-pill">RxJS</span><span class="tech-pill">NgRx</span><span class="tech-pill">Trello</span></div>
+      <div class="exp-role" data-i18n="deepcreek-role">Angular Instructor · Client: Dedalus (Medical Software)</div>
+      <p data-i18n="deepcreek-p1">Designed and delivered a <span class="highlight">4-month Angular training program</span> for Dedalus, a leading medical software company. Mentored 6 interns — University of Malaga students and vocational trainees — covering the complete ecosystem: Routing, Components, Services, Directives, Pipes, RxJS, and NgRx.</p>
+      <p data-i18n="deepcreek-p2">Led the program using SCRUM-Kanban with iterative development and peer reviews. Interns built individual projects with public APIs and a custom authentication backend. <span class="highlight">100% of participants graduated capable of independent application development.</span></p>
+      <div class="tech-row"><span class="tech-label" data-i18n="stack-label">Stack</span><span class="tech-pill">Angular</span><span class="tech-pill">RxJS</span><span class="tech-pill">NgRx</span><span class="tech-pill">Trello</span></div>
     </section>
 
     <!-- Distillery -->
@@ -1318,25 +1353,25 @@
         <img class="company-logo" src="https://logos-api.apistemic.com/domain:distillery.com" alt="Distillery" onerror="this.classList.add('hidden')">
         <div>
           <h2>Distillery</h2>
-          <span class="date">Aug 2021 — Mar 2023</span>
+          <span class="date" data-i18n="distillery-date">Aug 2021 — Mar 2023</span>
         </div>
       </div>
-      <div class="exp-role">Angular Developer · Client: Filmtrack (Media Entertainment)</div>
-      <p>Built a <span class="highlight">rights management CRM</span> in Angular for Filmtrack, handling contracts and licensing for major media entertainment clients. Led the migration of legacy CRM systems and established Angular architecture patterns adopted across the engineering team.</p>
+      <div class="exp-role" data-i18n="distillery-role">Angular Developer · Client: Filmtrack (Media Entertainment)</div>
+      <p data-i18n="distillery-p1">Built a <span class="highlight">rights management CRM</span> in Angular for Filmtrack, handling contracts and licensing for major media entertainment clients. Led the migration of legacy CRM systems and established Angular architecture patterns adopted across the engineering team.</p>
       <ul>
-        <li>Established <span class="highlight">Akita state management patterns</span> adopted as the team standard</li>
-        <li>Delivered technical presentations on Angular best practices, becoming the <span class="highlight">onboarding reference for new developers</span></li>
-        <li>Expanded full-stack capabilities by training on backend (C#) tickets</li>
+        <li data-i18n="distillery-li1">Established <span class="highlight">Akita state management patterns</span> adopted as the team standard</li>
+        <li data-i18n="distillery-li2">Delivered technical presentations on Angular best practices, becoming the <span class="highlight">onboarding reference for new developers</span></li>
+        <li data-i18n="distillery-li3">Expanded full-stack capabilities by training on backend (C#) tickets</li>
       </ul>
-      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 11</span><span class="tech-pill">Akita</span><span class="tech-pill">RxJS</span><span class="tech-pill">TypeScript</span><span class="tech-pill">C#</span><span class="tech-pill">MySQL</span><span class="tech-pill">Jasmine</span></div>
+      <div class="tech-row"><span class="tech-label" data-i18n="stack-label">Stack</span><span class="tech-pill">Angular 11</span><span class="tech-pill">Akita</span><span class="tech-pill">RxJS</span><span class="tech-pill">TypeScript</span><span class="tech-pill">C#</span><span class="tech-pill">MySQL</span><span class="tech-pill">Jasmine</span></div>
     </section>
 
     <div class="testimonial">
-      <p class="testimonial-text">I had the pleasure of working with Agustin for almost 2 years at Overactive. Agustin has a natural talent for writing clean, maintainable code and a great ability to solve complex problems. I highly recommend them as a software engineer.</p>
+      <p class="testimonial-text" data-i18n="testimonial-daian">I had the pleasure of working with Agustin for almost 2 years at Overactive. Agustin has a natural talent for writing clean, maintainable code and a great ability to solve complex problems. I highly recommend them as a software engineer.</p>
       <div class="testimonial-author">
         <div class="testimonial-author-info">
           <span class="testimonial-name">Daian Scuarissi</span>
-          <span class="testimonial-role">Software Engineer · Worked on same team at Overactive</span>
+          <span class="testimonial-role" data-i18n="testimonial-daian-role">Software Engineer · Worked on same team at Overactive</span>
         </div>
         <span class="testimonial-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</span>
       </div>
@@ -1348,25 +1383,25 @@
         <img class="company-logo" src="assets/trenda-logo.png" alt="Trenda">
         <div>
           <h2>Trenda Software</h2>
-          <span class="date">Mar 2018 — Jan 2021</span>
+          <span class="date" data-i18n="trenda-date">Mar 2018 — Jan 2021</span>
         </div>
       </div>
-      <div class="exp-role">Frontend Technical Leader</div>
-      <p>Led <span class="highlight">two cross-functional teams (9 members total)</span>: 2 FE devs, 2 BE devs, 1 BA, and 2 UX designers. Managed client relationships through regular meetings and feedback cycles, delivering weekly increments using SCRUM-Kanban.</p>
+      <div class="exp-role" data-i18n="trenda-role">Frontend Technical Leader</div>
+      <p data-i18n="trenda-p1">Led <span class="highlight">two cross-functional teams (9 members total)</span>: 2 FE devs, 2 BE devs, 1 BA, and 2 UX designers. Managed client relationships through regular meetings and feedback cycles, delivering weekly increments using SCRUM-Kanban.</p>
       <ul>
-        <li>Shipped <span class="highlight">vlife</span>, a mobile app with Ionic 5 from concept to production</li>
-        <li>Built a Java wrapper for the <span class="highlight">Mercado Libre SDK</span> (Ionic-Capacitor integration)</li>
-        <li>Performed client-facing demos and aligned deliverables with expectations across sprints</li>
+        <li data-i18n="trenda-li1">Shipped <span class="highlight">vlife</span>, a mobile app with Ionic 5 from concept to production</li>
+        <li data-i18n="trenda-li2">Built a Java wrapper for the <span class="highlight">Mercado Libre SDK</span> (Ionic-Capacitor integration)</li>
+        <li data-i18n="trenda-li3">Performed client-facing demos and aligned deliverables with expectations across sprints</li>
       </ul>
-      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 8</span><span class="tech-pill">Ionic 5</span><span class="tech-pill">Node.js</span><span class="tech-pill">Firebase</span></div>
+      <div class="tech-row"><span class="tech-label" data-i18n="stack-label">Stack</span><span class="tech-pill">Angular 8</span><span class="tech-pill">Ionic 5</span><span class="tech-pill">Node.js</span><span class="tech-pill">Firebase</span></div>
     </section>
 
     <div class="testimonial">
-      <p class="testimonial-text">Agustin was a great technical lead. He knew how to meet with each area of the project (BE, UX, PM) to build an organized frontend architecture. He gave me the guidelines to develop in a clear and maintainable way. And also helped me with any problems that came up.</p>
+      <p class="testimonial-text" data-i18n="testimonial-nicolas">Agustin was a great technical lead. He knew how to meet with each area of the project (BE, UX, PM) to build an organized frontend architecture. He gave me the guidelines to develop in a clear and maintainable way. And also helped me with any problems that came up.</p>
       <div class="testimonial-author">
         <div class="testimonial-author-info">
           <span class="testimonial-name">Nicolás Beltrán Méndez</span>
-          <span class="testimonial-role">Frontend Developer · Reported to Agustin directly</span>
+          <span class="testimonial-role" data-i18n="testimonial-nicolas-role">Frontend Developer · Reported to Agustin directly</span>
         </div>
         <span class="testimonial-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</span>
       </div>
@@ -1378,17 +1413,17 @@
         <img class="company-logo" src="assets/overactive-logo.png" alt="Overactive">
         <div>
           <h2>Overactive</h2>
-          <span class="date">Mar 2018 — Feb 2021</span>
+          <span class="date" data-i18n="overactive-date">Mar 2018 — Feb 2021</span>
         </div>
       </div>
-      <div class="exp-role">Frontend Developer · Clients: XPO Logistics, IPTI Healthcare</div>
-      <p>Built <span class="highlight">real-time GPS tracking and IoT monitoring systems</span> for XPO Logistics, then transferred to IPTI Healthcare to implement surgical material tray tracking for US hospitals — applying the same IoT real-time architecture to a healthcare context.</p>
+      <div class="exp-role" data-i18n="overactive-role">Frontend Developer · Clients: XPO Logistics, IPTI Healthcare</div>
+      <p data-i18n="overactive-p1">Built <span class="highlight">real-time GPS tracking and IoT monitoring systems</span> for XPO Logistics, then transferred to IPTI Healthcare to implement surgical material tray tracking for US hospitals — applying the same IoT real-time architecture to a healthcare context.</p>
       <ul>
-        <li>Achieved <span class="highlight">90%+ test coverage</span> with Jasmine; migrated Angular versions with zero downtime</li>
-        <li>Established CI/CD QA automation workflows; resolved SonarQube quality gate issues</li>
-        <li>Documented backend microservices with Swagger; collaborated with UX on feature enhancements</li>
+        <li data-i18n="overactive-li1">Achieved <span class="highlight">90%+ test coverage</span> with Jasmine; migrated Angular versions with zero downtime</li>
+        <li data-i18n="overactive-li2">Established CI/CD QA automation workflows; resolved SonarQube quality gate issues</li>
+        <li data-i18n="overactive-li3">Documented backend microservices with Swagger; collaborated with UX on feature enhancements</li>
       </ul>
-      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 8 & 11</span><span class="tech-pill">RxJS</span><span class="tech-pill">NgRx</span><span class="tech-pill">SonarQube</span><span class="tech-pill">Cypress</span><span class="tech-pill">AG-Grid</span><span class="tech-pill">Jasmine</span></div>
+      <div class="tech-row"><span class="tech-label" data-i18n="stack-label">Stack</span><span class="tech-pill">Angular 8 & 11</span><span class="tech-pill">RxJS</span><span class="tech-pill">NgRx</span><span class="tech-pill">SonarQube</span><span class="tech-pill">Cypress</span><span class="tech-pill">AG-Grid</span><span class="tech-pill">Jasmine</span></div>
     </section>
 
     <!-- BeeReal (includes XOOR context) -->
@@ -1400,25 +1435,25 @@
         </div>
         <div>
           <h2>BeeReal &amp; XOOR</h2>
-          <span class="date">Mar 2017 — Mar 2018</span>
+          <span class="date" data-i18n="beereal-date">Mar 2017 — Mar 2018</span>
         </div>
       </div>
-      <div class="exp-role">Full Stack Developer · Clients: DHL (Logistics), Honeybee Health</div>
-      <p>Worked with <span class="highlight">DHL on full-stack logistics solutions</span>, participating in architecture discussions to improve truck GPS tracking performance. Also built a cross-platform CRM with Vue.js for Honeybee Health at XOOR, consuming APIs via GraphQL and integrating into Shopify.</p>
+      <div class="exp-role" data-i18n="beereal-role">Full Stack Developer · Clients: DHL (Logistics), Honeybee Health</div>
+      <p data-i18n="beereal-p1">Worked with <span class="highlight">DHL on full-stack logistics solutions</span>, participating in architecture discussions to improve truck GPS tracking performance. Also built a cross-platform CRM with Vue.js for Honeybee Health at XOOR, consuming APIs via GraphQL and integrating into Shopify.</p>
       <ul>
-        <li>Company intranet in Angular 6 with Firebase and Parse</li>
-        <li>Net Ops Assistant: hybrid mobile app (Ionic 3, Node.js, SQL)</li>
-        <li>CAP Reports &amp; Brain Portal: Angular 6 web consoles with Node.js and MongoDB</li>
+        <li data-i18n="beereal-li1">Company intranet in Angular 6 with Firebase and Parse</li>
+        <li data-i18n="beereal-li2">Net Ops Assistant: hybrid mobile app (Ionic 3, Node.js, SQL)</li>
+        <li data-i18n="beereal-li3">CAP Reports &amp; Brain Portal: Angular 6 web consoles with Node.js and MongoDB</li>
       </ul>
-      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 6</span><span class="tech-pill">Ionic 3</span><span class="tech-pill">Vue.js</span><span class="tech-pill">Node.js</span><span class="tech-pill">GraphQL</span><span class="tech-pill">MongoDB</span><span class="tech-pill">Firebase</span></div>
+      <div class="tech-row"><span class="tech-label" data-i18n="stack-label">Stack</span><span class="tech-pill">Angular 6</span><span class="tech-pill">Ionic 3</span><span class="tech-pill">Vue.js</span><span class="tech-pill">Node.js</span><span class="tech-pill">GraphQL</span><span class="tech-pill">MongoDB</span><span class="tech-pill">Firebase</span></div>
     </section>
 
     <div class="testimonial">
-      <p class="testimonial-text">I work with Agustin on development of mobile app for DHL. Agustin is dedicated and resourceful developer. He was able to create the app for Android and iOS and provided an excellent support through build and testing cycle.</p>
+      <p class="testimonial-text" data-i18n="testimonial-svitlana">I work with Agustin on development of mobile app for DHL. Agustin is dedicated and resourceful developer. He was able to create the app for Android and iOS and provided an excellent support through build and testing cycle.</p>
       <div class="testimonial-author">
         <div class="testimonial-author-info">
           <span class="testimonial-name">Svitlana Syvetska</span>
-          <span class="testimonial-role">Sr Project Manager at DHL Express · Agustin's client</span>
+          <span class="testimonial-role" data-i18n="testimonial-svitlana-role">Sr Project Manager at DHL Express · Agustin's client</span>
         </div>
         <span class="testimonial-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</span>
       </div>
@@ -1426,15 +1461,15 @@
 
     <!-- Earlier Career -->
     <div class="earlier-career" id="earlier">
-      <h2>Earlier Career · QA &amp; Testing Foundation (2014 — 2017)</h2>
+      <h2 data-i18n="earlier-title">Earlier Career · QA &amp; Testing Foundation (2014 — 2017)</h2>
 
       <div class="career-entry">
         <div class="career-entry-header">
           <img class="company-logo" src="https://logos-api.apistemic.com/domain:globant.com" alt="Globant" onerror="this.classList.add('hidden')">
           <h3>Globant <span>· Aug 2016 — Mar 2017</span></h3>
         </div>
-        <div class="career-role">QA Engineer · Client: Open Bank (European Banking)</div>
-        <p>Built automation test suites and API tests for Java microservices. Selenium regression testing for frontend applications in a European banking environment.</p>
+        <div class="career-role" data-i18n="globant-role">QA Engineer · Client: Open Bank (European Banking)</div>
+        <p data-i18n="globant-p1">Built automation test suites and API tests for Java microservices. Selenium regression testing for frontend applications in a European banking environment.</p>
         <div class="tech-row"><span class="tech-pill">Java 8</span><span class="tech-pill">Selenium</span><span class="tech-pill">JMeter</span><span class="tech-pill">Jenkins</span><span class="tech-pill">Postman</span></div>
       </div>
 
@@ -1443,8 +1478,8 @@
           <img class="company-logo" src="assets/technisys-logo.png" alt="Technisys">
           <h3>Technisys <span>· Jul 2015 — May 2016</span></h3>
         </div>
-        <div class="career-role">QA Engineer · Financial Services</div>
-        <p>Developed regression automation for financial platforms with Selenium. Built foundational QA expertise in banking that led to the Globant assignment.</p>
+        <div class="career-role" data-i18n="technisys-role">QA Engineer · Financial Services</div>
+        <p data-i18n="technisys-p1">Developed regression automation for financial platforms with Selenium. Built foundational QA expertise in banking that led to the Globant assignment.</p>
         <div class="tech-row"><span class="tech-pill">Java 8</span><span class="tech-pill">Selenium</span><span class="tech-pill">JUnit</span><span class="tech-pill">Cucumber</span><span class="tech-pill">Jenkins</span></div>
       </div>
 
@@ -1453,23 +1488,23 @@
           <img class="company-logo" src="https://logos-api.apistemic.com/domain:levinassets.com" alt="Levin Global" onerror="this.classList.add('hidden')">
           <h3>Tsoft &amp; Levin Global <span>· Jun 2014 — Apr 2015</span></h3>
         </div>
-        <div class="career-role">Test Analyst → Testing Lead</div>
-        <p>Started as Test Analyst on banking systems, promoted to QA Lead managing testing teams with Scrum. White-box testing, .NET unit tests, incident management via JIRA.</p>
+        <div class="career-role" data-i18n="tsoft-role">Test Analyst → Testing Lead</div>
+        <p data-i18n="tsoft-p1">Started as Test Analyst on banking systems, promoted to QA Lead managing testing teams with Scrum. White-box testing, .NET unit tests, incident management via JIRA.</p>
         <div class="tech-row"><span class="tech-pill">.NET</span><span class="tech-pill">SQL</span><span class="tech-pill">JIRA</span><span class="tech-pill">HP Quality Center</span></div>
       </div>
     </div>
 
     <div class="cta-section">
       <canvas class="cta-nebula" id="ctaNebula"></canvas>
-      <div class="cta-heading">Let's build something remarkable.</div>
-      <p class="cta-sub">If my work resonates with what you're looking for, I'd welcome the conversation.</p>
+      <div class="cta-heading" data-i18n="cta-heading">Let's build something remarkable.</div>
+      <p class="cta-sub" data-i18n="cta-sub">If my work resonates with what you're looking for, I'd welcome the conversation.</p>
       <div class="cta-links">
-        <a href="mailto:agustindxm@gmail.com" class="cta-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Send an email</a>
-        <a href="https://www.linkedin.com/in/agustin-diez-martinez-76759a60/" target="_blank" rel="noopener" class="cta-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Connect on LinkedIn</a>
+        <a href="mailto:agustindxm@gmail.com" class="cta-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span data-i18n="cta-email">Send an email</span></a>
+        <a href="https://www.linkedin.com/in/agustin-diez-martinez-76759a60/" target="_blank" rel="noopener" class="cta-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span data-i18n="cta-linkedin">Connect on LinkedIn</span></a>
       </div>
     </div>
 
-    <footer class="cv-footer">
+    <footer class="cv-footer" data-i18n="footer">
       Built with code, caffeine, and a little help from AI.
     </footer>
 
@@ -1796,6 +1831,319 @@
         setTimeout(function() { toast.classList.remove('show'); }, 1200);
       });
     });
+  });
+
+  // ───── i18n ─────
+  var translations = {
+    en: {
+      'role-title': 'Frontend Architect &amp; Technical Leader',
+      'about': 'Frontend Architect with 11+ years building scalable UI platforms for enterprise products across market research, hospitality, healthcare, logistics, and fintech. I lead distributed teams, establish architectural standards, and drive technical strategy. Currently leveraging AI-assisted development with agentic workflows to deliver sprint-level implementations in days, without compromising code quality or architectural integrity.',
+      'download-cv': 'Download CV',
+      'skills-title': 'Core Skills',
+      'cat-frontend': 'Frontend',
+      'cat-architecture': 'Architecture',
+      'cat-devops': 'DevOps',
+      'cat-ai': 'AI',
+      'cat-leadership': 'Leadership',
+      'cat-ownership': 'Ownership',
+      'skill-design-systems': 'Design Systems',
+      'skill-component-libs': 'Component Libraries',
+      'skill-microfrontends': 'Micro-frontends',
+      'skill-mentoring': 'Team Mentoring',
+      'skill-tech-strategy': 'Technical Strategy',
+      'skill-code-reviews': 'Code Reviews',
+      'skill-client-demos': 'Client Demos',
+      'skill-stakeholder': 'Stakeholder Alignment',
+      'skill-release-coord': 'Release Coordination',
+      'skill-sprint-planning': 'Sprint Planning',
+      'languages-title': 'Languages',
+      'lang-spanish': 'Spanish',
+      'lang-english': 'English',
+      'lang-portuguese': 'Portuguese',
+      'lang-native': 'Native',
+      'lang-professional': 'Professional proficiency',
+      'lang-conversational': 'Conversational',
+      'musician': 'Musician — SoundCloud',
+      'stack-label': 'Stack',
+      'ai-assisted': 'AI-Assisted',
+      'dualboot-date': 'Nov 2024 — Present',
+      'dualboot-role': 'Frontend Architect · Client: Suzy (AI-powered market research platform)',
+      'dualboot-p1': 'Architecting and delivering multiple frontend platforms for <span class="highlight">Suzy\'s AI-powered market research engine</span> serving enterprise clients with real-time consumer insights across quantitative and qualitative workflows.',
+      'dualboot-p2': 'Leading frontend architecture and delivery with a distributed team across <span class="highlight">Angular and React</span>. Setting technical direction, establishing standards and component libraries, and mentoring engineers on architecture patterns. Pioneering <span class="highlight">AI-assisted agentic workflows with Claude and Cursor</span> — delivering implementations that previously required multi-sprint cycles in a fraction of the time while maintaining full code quality and architectural coherence. Coordinating releases through Azure DevOps pipelines, partnering with cross-functional stakeholders to align timelines and keep deployments predictable.',
+      'applaudo-date': 'Jul 2024 — Nov 2024',
+      'applaudo-role': 'Technical Lead · Government Client: Municipality of Zacatecoluca (El Salvador)',
+      'applaudo-p1': 'Led a <span class="highlight">7-person frontend team</span> to deliver a Tax Management System for the Municipality of Zacatecoluca under El Salvador\'s Secretariat of Technological Innovation. Defined architecture, established code review processes, and <span class="highlight">drove execution across a three-month delivery window</span>.',
+      'applaudo-p2': 'Partnered closely with UX and Backend teams to refine requirements, prioritize scope, and maintain delivery velocity. Coordinated deployments with DevOps, conducted <span class="highlight">stakeholder demos</span> to align expectations and secure sign-offs. The client later paused the initiative due to funding constraints.',
+      'testimonial-mariano': 'Agustin\'s expertise in Angular development is truly exceptional, and it significantly contributed to the success of our project. He demonstrated a deep understanding of Angular, showcasing his ability to tackle complex problems with innovative solutions. His coding skills are top-notch.',
+      'testimonial-mariano-role': 'Tech Lead at Performance Analytics by AMS',
+      'mindata-date': 'Mar 2023 — Jul 2024',
+      'mindata-role': 'Angular Engineer · Client: RIU Hotels (Global Hospitality)',
+      'mindata-p1': 'Ensured platform stability and CI/CD operations across <span class="highlight">8 globally deployed Angular applications</span> for RIU Hotels, one of the world\'s largest hotel chains. Owned the Jenkins deployment pipeline and coordinated releases across environments using Kanban methodology.',
+      'mindata-p2': 'Identified and resolved critical production issues, <span class="highlight">reducing user-facing incidents</span> and ensuring reliability across applications serving hotel guests worldwide. Enforced code quality standards through SonarQube and systematic code reviews.',
+      'testimonial-marcos': 'Agustín is a programmer with extensive knowledge of Angular and JavaScript who is characterized by his commitment to quality. Additionally, thanks to his soft skills, the daily work with him is very comfortable and constructive.',
+      'testimonial-marcos-role': 'Software Architect · Managed Agustin directly',
+      'deepcreek-date': 'Mar 2023 — Jul 2023',
+      'deepcreek-role': 'Angular Instructor · Client: Dedalus (Medical Software)',
+      'deepcreek-p1': 'Designed and delivered a <span class="highlight">4-month Angular training program</span> for Dedalus, a leading medical software company. Mentored 6 interns — University of Malaga students and vocational trainees — covering the complete ecosystem: Routing, Components, Services, Directives, Pipes, RxJS, and NgRx.',
+      'deepcreek-p2': 'Led the program using SCRUM-Kanban with iterative development and peer reviews. Interns built individual projects with public APIs and a custom authentication backend. <span class="highlight">100% of participants graduated capable of independent application development.</span>',
+      'distillery-date': 'Aug 2021 — Mar 2023',
+      'distillery-role': 'Angular Developer · Client: Filmtrack (Media Entertainment)',
+      'distillery-p1': 'Built a <span class="highlight">rights management CRM</span> in Angular for Filmtrack, handling contracts and licensing for major media entertainment clients. Led the migration of legacy CRM systems and established Angular architecture patterns adopted across the engineering team.',
+      'distillery-li1': 'Established <span class="highlight">Akita state management patterns</span> adopted as the team standard',
+      'distillery-li2': 'Delivered technical presentations on Angular best practices, becoming the <span class="highlight">onboarding reference for new developers</span>',
+      'distillery-li3': 'Expanded full-stack capabilities by training on backend (C#) tickets',
+      'testimonial-daian': 'I had the pleasure of working with Agustin for almost 2 years at Overactive. Agustin has a natural talent for writing clean, maintainable code and a great ability to solve complex problems. I highly recommend them as a software engineer.',
+      'testimonial-daian-role': 'Software Engineer · Worked on same team at Overactive',
+      'trenda-date': 'Mar 2018 — Jan 2021',
+      'trenda-role': 'Frontend Technical Leader',
+      'trenda-p1': 'Led <span class="highlight">two cross-functional teams (9 members total)</span>: 2 FE devs, 2 BE devs, 1 BA, and 2 UX designers. Managed client relationships through regular meetings and feedback cycles, delivering weekly increments using SCRUM-Kanban.',
+      'trenda-li1': 'Shipped <span class="highlight">vlife</span>, a mobile app with Ionic 5 from concept to production',
+      'trenda-li2': 'Built a Java wrapper for the <span class="highlight">Mercado Libre SDK</span> (Ionic-Capacitor integration)',
+      'trenda-li3': 'Performed client-facing demos and aligned deliverables with expectations across sprints',
+      'testimonial-nicolas': 'Agustin was a great technical lead. He knew how to meet with each area of the project (BE, UX, PM) to build an organized frontend architecture. He gave me the guidelines to develop in a clear and maintainable way. And also helped me with any problems that came up.',
+      'testimonial-nicolas-role': 'Frontend Developer · Reported to Agustin directly',
+      'overactive-date': 'Mar 2018 — Feb 2021',
+      'overactive-role': 'Frontend Developer · Clients: XPO Logistics, IPTI Healthcare',
+      'overactive-p1': 'Built <span class="highlight">real-time GPS tracking and IoT monitoring systems</span> for XPO Logistics, then transferred to IPTI Healthcare to implement surgical material tray tracking for US hospitals — applying the same IoT real-time architecture to a healthcare context.',
+      'overactive-li1': 'Achieved <span class="highlight">90%+ test coverage</span> with Jasmine; migrated Angular versions with zero downtime',
+      'overactive-li2': 'Established CI/CD QA automation workflows; resolved SonarQube quality gate issues',
+      'overactive-li3': 'Documented backend microservices with Swagger; collaborated with UX on feature enhancements',
+      'beereal-date': 'Mar 2017 — Mar 2018',
+      'beereal-role': 'Full Stack Developer · Clients: DHL (Logistics), Honeybee Health',
+      'beereal-p1': 'Worked with <span class="highlight">DHL on full-stack logistics solutions</span>, participating in architecture discussions to improve truck GPS tracking performance. Also built a cross-platform CRM with Vue.js for Honeybee Health at XOOR, consuming APIs via GraphQL and integrating into Shopify.',
+      'beereal-li1': 'Company intranet in Angular 6 with Firebase and Parse',
+      'beereal-li2': 'Net Ops Assistant: hybrid mobile app (Ionic 3, Node.js, SQL)',
+      'beereal-li3': 'CAP Reports &amp; Brain Portal: Angular 6 web consoles with Node.js and MongoDB',
+      'testimonial-svitlana': 'I work with Agustin on development of mobile app for DHL. Agustin is dedicated and resourceful developer. He was able to create the app for Android and iOS and provided an excellent support through build and testing cycle.',
+      'testimonial-svitlana-role': 'Sr Project Manager at DHL Express · Agustin\'s client',
+      'earlier-title': 'Earlier Career · QA &amp; Testing Foundation (2014 — 2017)',
+      'globant-role': 'QA Engineer · Client: Open Bank (European Banking)',
+      'globant-p1': 'Built automation test suites and API tests for Java microservices. Selenium regression testing for frontend applications in a European banking environment.',
+      'technisys-role': 'QA Engineer · Financial Services',
+      'technisys-p1': 'Developed regression automation for financial platforms with Selenium. Built foundational QA expertise in banking that led to the Globant assignment.',
+      'tsoft-role': 'Test Analyst → Testing Lead',
+      'tsoft-p1': 'Started as Test Analyst on banking systems, promoted to QA Lead managing testing teams with Scrum. White-box testing, .NET unit tests, incident management via JIRA.',
+      'cta-heading': 'Let\'s build something remarkable.',
+      'cta-sub': 'If my work resonates with what you\'re looking for, I\'d welcome the conversation.',
+      'cta-email': 'Send an email',
+      'cta-linkedin': 'Connect on LinkedIn',
+      'footer': 'Built with code, caffeine, and a little help from AI.'
+    },
+    es: {
+      'role-title': 'Arquitecto Frontend &amp; Líder Técnico',
+      'about': 'Arquitecto Frontend con más de 11 años construyendo plataformas UI escalables para productos empresariales en investigación de mercado, hotelería, salud, logística y fintech. Lidero equipos distribuidos, establezco estándares arquitectónicos e impulso la estrategia técnica. Actualmente aprovechando el desarrollo asistido por IA con flujos de trabajo agénticos para entregar implementaciones de nivel sprint en días, sin comprometer la calidad del código ni la integridad arquitectónica.',
+      'download-cv': 'Descargar CV',
+      'skills-title': 'Habilidades Clave',
+      'cat-frontend': 'Frontend',
+      'cat-architecture': 'Arquitectura',
+      'cat-devops': 'DevOps',
+      'cat-ai': 'IA',
+      'cat-leadership': 'Liderazgo',
+      'cat-ownership': 'Responsabilidad',
+      'skill-design-systems': 'Sistemas de Diseño',
+      'skill-component-libs': 'Bibliotecas de Componentes',
+      'skill-microfrontends': 'Micro-frontends',
+      'skill-mentoring': 'Mentoría de Equipos',
+      'skill-tech-strategy': 'Estrategia Técnica',
+      'skill-code-reviews': 'Revisión de Código',
+      'skill-client-demos': 'Demos a Clientes',
+      'skill-stakeholder': 'Alineación de Stakeholders',
+      'skill-release-coord': 'Coordinación de Releases',
+      'skill-sprint-planning': 'Planificación de Sprints',
+      'languages-title': 'Idiomas',
+      'lang-spanish': 'Español',
+      'lang-english': 'Inglés',
+      'lang-portuguese': 'Portugués',
+      'lang-native': 'Nativo',
+      'lang-professional': 'Competencia profesional',
+      'lang-conversational': 'Conversacional',
+      'musician': 'Músico — SoundCloud',
+      'stack-label': 'Stack',
+      'ai-assisted': 'Asistido por IA',
+      'dualboot-date': 'Nov 2024 — Presente',
+      'dualboot-role': 'Arquitecto Frontend · Cliente: Suzy (plataforma de investigación de mercado con IA)',
+      'dualboot-p1': 'Arquitectura y entrega de múltiples plataformas frontend para el <span class="highlight">motor de investigación de mercado con IA de Suzy</span>, sirviendo a clientes empresariales con insights de consumidores en tiempo real en flujos cuantitativos y cualitativos.',
+      'dualboot-p2': 'Liderando la arquitectura y entrega frontend con un equipo distribuido en <span class="highlight">Angular y React</span>. Definiendo la dirección técnica, estableciendo estándares y bibliotecas de componentes, y mentoreando ingenieros en patrones de arquitectura. Pionero en <span class="highlight">flujos de trabajo agénticos asistidos por IA con Claude y Cursor</span>, entregando implementaciones que antes requerían ciclos de múltiples sprints en una fracción del tiempo, manteniendo la calidad total del código y la coherencia arquitectónica. Coordinando releases a través de pipelines de Azure DevOps, colaborando con stakeholders multifuncionales para alinear cronogramas y mantener despliegues predecibles.',
+      'applaudo-date': 'Jul 2024 — Nov 2024',
+      'applaudo-role': 'Líder Técnico · Cliente Gubernamental: Municipalidad de Zacatecoluca (El Salvador)',
+      'applaudo-p1': 'Lideré un <span class="highlight">equipo frontend de 7 personas</span> para entregar un Sistema de Gestión Tributaria para la Municipalidad de Zacatecoluca bajo la Secretaría de Innovación Tecnológica de El Salvador. Definí la arquitectura, establecí procesos de revisión de código e <span class="highlight">impulsé la ejecución en una ventana de entrega de tres meses</span>.',
+      'applaudo-p2': 'Colaboré estrechamente con los equipos de UX y Backend para refinar requerimientos, priorizar alcance y mantener la velocidad de entrega. Coordiné despliegues con DevOps, realicé <span class="highlight">demos a stakeholders</span> para alinear expectativas y asegurar aprobaciones. El cliente pausó la iniciativa posteriormente debido a restricciones de financiamiento.',
+      'testimonial-mariano': 'La experiencia de Agustín en desarrollo Angular es verdaderamente excepcional, y contribuyó significativamente al éxito de nuestro proyecto. Demostró una comprensión profunda de Angular, mostrando su capacidad para abordar problemas complejos con soluciones innovadoras. Sus habilidades de programación son de primer nivel.',
+      'testimonial-mariano-role': 'Tech Lead en Performance Analytics por AMS',
+      'mindata-date': 'Mar 2023 — Jul 2024',
+      'mindata-role': 'Ingeniero Angular · Cliente: RIU Hotels (Hotelería Global)',
+      'mindata-p1': 'Aseguré la estabilidad de la plataforma y las operaciones de CI/CD en <span class="highlight">8 aplicaciones Angular desplegadas globalmente</span> para RIU Hotels, una de las cadenas hoteleras más grandes del mundo. A cargo del pipeline de despliegue Jenkins y coordinación de releases entre entornos usando metodología Kanban.',
+      'mindata-p2': 'Identifiqué y resolví incidencias críticas en producción, <span class="highlight">reduciendo incidentes visibles para usuarios</span> y asegurando la confiabilidad en aplicaciones que sirven a huéspedes de hoteles en todo el mundo. Apliqué estándares de calidad de código a través de SonarQube y revisiones de código sistemáticas.',
+      'testimonial-marcos': 'Agustín es un programador con amplios conocimientos de Angular y JavaScript que se caracteriza por su compromiso con la calidad. Además, por sus soft skills, el trabajo diario con él es muy cómodo y constructivo.',
+      'testimonial-marcos-role': 'Arquitecto de Software · Supervisó a Agustin directamente',
+      'deepcreek-date': 'Mar 2023 — Jul 2023',
+      'deepcreek-role': 'Instructor Angular · Cliente: Dedalus (Software Médico)',
+      'deepcreek-p1': 'Diseñé y dicté un <span class="highlight">programa de capacitación Angular de 4 meses</span> para Dedalus, una empresa líder de software médico. Mentoreé a 6 pasantes — estudiantes de la Universidad de Málaga y formación profesional — cubriendo el ecosistema completo: Routing, Components, Services, Directives, Pipes, RxJS y NgRx.',
+      'deepcreek-p2': 'Lideré el programa usando SCRUM-Kanban con desarrollo iterativo y revisiones entre pares. Los pasantes construyeron proyectos individuales con APIs públicas y un backend de autenticación personalizado. <span class="highlight">El 100% de los participantes se graduó capaz de desarrollar aplicaciones de forma independiente.</span>',
+      'distillery-date': 'Ago 2021 — Mar 2023',
+      'distillery-role': 'Desarrollador Angular · Cliente: Filmtrack (Entretenimiento)',
+      'distillery-p1': 'Construí un <span class="highlight">CRM de gestión de derechos</span> en Angular para Filmtrack, gestionando contratos y licencias para clientes de entretenimiento. Lideré la migración de sistemas CRM legacy y establecí patrones de arquitectura Angular adoptados por todo el equipo de ingeniería.',
+      'distillery-li1': 'Establecí <span class="highlight">patrones de gestión de estado con Akita</span> adoptados como estándar del equipo',
+      'distillery-li2': 'Dicté presentaciones técnicas sobre mejores prácticas en Angular, convirtiéndome en la <span class="highlight">referencia de onboarding para nuevos desarrolladores</span>',
+      'distillery-li3': 'Expandí capacidades full-stack entrenándome en tickets de backend (C#)',
+      'testimonial-daian': 'Tuve el placer de trabajar con Agustín durante casi 2 años en Overactive. Agustín tiene un talento natural para escribir código limpio y mantenible, y una gran capacidad para resolver problemas complejos. Lo recomiendo ampliamente como ingeniero de software.',
+      'testimonial-daian-role': 'Ingeniero de Software · Trabajó en el mismo equipo en Overactive',
+      'trenda-date': 'Mar 2018 — Ene 2021',
+      'trenda-role': 'Líder Técnico Frontend',
+      'trenda-p1': 'Lideré <span class="highlight">dos equipos multifuncionales (9 miembros en total)</span>: 2 devs FE, 2 devs BE, 1 BA y 2 diseñadores UX. Gestioné relaciones con clientes mediante reuniones regulares y ciclos de feedback, entregando incrementos semanales usando SCRUM-Kanban.',
+      'trenda-li1': 'Lancé <span class="highlight">vlife</span>, una app móvil con Ionic 5 desde concepto hasta producción',
+      'trenda-li2': 'Construí un wrapper Java para el <span class="highlight">SDK de Mercado Libre</span> (integración Ionic-Capacitor)',
+      'trenda-li3': 'Realicé demos al cliente y alineé entregables con expectativas a lo largo de los sprints',
+      'testimonial-nicolas': 'Agustín fue un gran líder técnico. Sabía cómo reunirse con cada área del proyecto (BE, UX, PM) para construir una arquitectura frontend organizada. Me dio las pautas para desarrollar de manera clara y mantenible. Y también me ayudó con cualquier problema que surgiera.',
+      'testimonial-nicolas-role': 'Desarrollador Frontend · Reportó a Agustin directamente',
+      'overactive-date': 'Mar 2018 — Feb 2021',
+      'overactive-role': 'Desarrollador Frontend · Clientes: XPO Logistics, IPTI Healthcare',
+      'overactive-p1': 'Construí <span class="highlight">sistemas de rastreo GPS en tiempo real y monitoreo IoT</span> para XPO Logistics, luego transferido a IPTI Healthcare para implementar seguimiento de bandejas de material quirúrgico en hospitales de EE.UU. — aplicando la misma arquitectura IoT en tiempo real a un contexto de salud.',
+      'overactive-li1': 'Logré <span class="highlight">más del 90% de cobertura de tests</span> con Jasmine; migré versiones de Angular con cero tiempo de inactividad',
+      'overactive-li2': 'Establecí flujos de automatización QA CI/CD; resolví problemas de quality gates de SonarQube',
+      'overactive-li3': 'Documenté microservicios backend con Swagger; colaboré con UX en mejoras de funcionalidades',
+      'beereal-date': 'Mar 2017 — Mar 2018',
+      'beereal-role': 'Desarrollador Full Stack · Clientes: DHL (Logística), Honeybee Health',
+      'beereal-p1': 'Trabajé con <span class="highlight">DHL en soluciones logísticas full-stack</span>, participando en discusiones de arquitectura para mejorar el rendimiento del rastreo GPS de camiones. También construí un CRM multiplataforma con Vue.js para Honeybee Health en XOOR, consumiendo APIs vía GraphQL e integrando con Shopify.',
+      'beereal-li1': 'Intranet corporativa en Angular 6 con Firebase y Parse',
+      'beereal-li2': 'Net Ops Assistant: app móvil híbrida (Ionic 3, Node.js, SQL)',
+      'beereal-li3': 'CAP Reports &amp; Brain Portal: consolas web Angular 6 con Node.js y MongoDB',
+      'testimonial-svitlana': 'Trabajé con Agustín en el desarrollo de una app móvil para DHL. Agustín es un desarrollador dedicado e ingenioso. Fue capaz de crear la app para Android e iOS y brindó un excelente soporte durante el ciclo de construcción y pruebas.',
+      'testimonial-svitlana-role': 'Sr Project Manager en DHL Express · Cliente de Agustin',
+      'earlier-title': 'Carrera Temprana · Base en QA &amp; Testing (2014 — 2017)',
+      'globant-role': 'Ingeniero QA · Cliente: Open Bank (Banca Europea)',
+      'globant-p1': 'Construí suites de tests automatizados y pruebas de API para microservicios Java. Testing de regresión con Selenium para aplicaciones frontend en un entorno bancario europeo.',
+      'technisys-role': 'Ingeniero QA · Servicios Financieros',
+      'technisys-p1': 'Desarrollé automatización de regresión para plataformas financieras con Selenium. Construí experiencia base en QA bancario que llevó a la asignación en Globant.',
+      'tsoft-role': 'Analista de Testing → Líder de Testing',
+      'tsoft-p1': 'Comencé como Analista de Testing en sistemas bancarios, promovido a Líder QA gestionando equipos de testing con Scrum. Testing de caja blanca, tests unitarios .NET, gestión de incidencias vía JIRA.',
+      'cta-heading': 'Construyamos algo extraordinario.',
+      'cta-sub': 'Si mi trabajo resuena con lo que estás buscando, me encantaría conversar.',
+      'cta-email': 'Enviar un email',
+      'cta-linkedin': 'Conectar en LinkedIn',
+      'footer': 'Hecho con código, café y un poco de ayuda de la IA.'
+    },
+    pt: {
+      'role-title': 'Arquiteto Frontend &amp; Líder Técnico',
+      'about': 'Arquiteto Frontend com mais de 11 anos construindo plataformas UI escaláveis para produtos empresariais em pesquisa de mercado, hotelaria, saúde, logística e fintech. Lidero equipes distribuídas, estabeleço padrões arquitetônicos e impulsiono a estratégia técnica. Atualmente aproveitando o desenvolvimento assistido por IA com fluxos de trabalho agênticos para entregar implementações de nível sprint em dias, sem comprometer a qualidade do código nem a integridade arquitetônica.',
+      'download-cv': 'Baixar CV',
+      'skills-title': 'Habilidades Principais',
+      'cat-frontend': 'Frontend',
+      'cat-architecture': 'Arquitetura',
+      'cat-devops': 'DevOps',
+      'cat-ai': 'IA',
+      'cat-leadership': 'Liderança',
+      'cat-ownership': 'Responsabilidade',
+      'skill-design-systems': 'Design Systems',
+      'skill-component-libs': 'Bibliotecas de Componentes',
+      'skill-microfrontends': 'Micro-frontends',
+      'skill-mentoring': 'Mentoria de Equipes',
+      'skill-tech-strategy': 'Estratégia Técnica',
+      'skill-code-reviews': 'Revisão de Código',
+      'skill-client-demos': 'Demos para Clientes',
+      'skill-stakeholder': 'Alinhamento de Stakeholders',
+      'skill-release-coord': 'Coordenação de Releases',
+      'skill-sprint-planning': 'Planejamento de Sprints',
+      'languages-title': 'Idiomas',
+      'lang-spanish': 'Espanhol',
+      'lang-english': 'Inglês',
+      'lang-portuguese': 'Português',
+      'lang-native': 'Nativo',
+      'lang-professional': 'Proficiência profissional',
+      'lang-conversational': 'Conversacional',
+      'musician': 'Músico — SoundCloud',
+      'stack-label': 'Stack',
+      'ai-assisted': 'Assistido por IA',
+      'dualboot-date': 'Nov 2024 — Presente',
+      'dualboot-role': 'Arquiteto Frontend · Cliente: Suzy (plataforma de pesquisa de mercado com IA)',
+      'dualboot-p1': 'Arquitetando e entregando múltiplas plataformas frontend para o <span class="highlight">motor de pesquisa de mercado com IA da Suzy</span>, atendendo clientes empresariais com insights de consumidores em tempo real em fluxos quantitativos e qualitativos.',
+      'dualboot-p2': 'Liderando a arquitetura e entrega frontend com uma equipe distribuída em <span class="highlight">Angular e React</span>. Definindo a direção técnica, estabelecendo padrões e bibliotecas de componentes, e mentorando engenheiros em padrões de arquitetura. Pioneiro em <span class="highlight">fluxos de trabalho agênticos assistidos por IA com Claude e Cursor</span>, entregando implementações que antes exigiam ciclos de múltiplos sprints em uma fração do tempo, mantendo a qualidade total do código e a coerência arquitetônica. Coordenando releases através de pipelines do Azure DevOps, colaborando com stakeholders multifuncionais para alinhar cronogramas e manter deployments previsíveis.',
+      'applaudo-date': 'Jul 2024 — Nov 2024',
+      'applaudo-role': 'Líder Técnico · Cliente Governamental: Município de Zacatecoluca (El Salvador)',
+      'applaudo-p1': 'Liderei uma <span class="highlight">equipe frontend de 7 pessoas</span> para entregar um Sistema de Gestão Tributária para o Município de Zacatecoluca sob a Secretaria de Inovação Tecnológica de El Salvador. Defini a arquitetura, estabeleci processos de revisão de código e <span class="highlight">impulsionei a execução em uma janela de entrega de três meses</span>.',
+      'applaudo-p2': 'Colaborei estreitamente com as equipes de UX e Backend para refinar requisitos, priorizar escopo e manter a velocidade de entrega. Coordenei deployments com DevOps, realizei <span class="highlight">demos para stakeholders</span> para alinhar expectativas e garantir aprovações. O cliente pausou a iniciativa posteriormente devido a restrições orçamentárias.',
+      'testimonial-mariano': 'A expertise de Agustín em desenvolvimento Angular é verdadeiramente excepcional, e contribuiu significativamente para o sucesso do nosso projeto. Ele demonstrou uma compreensão profunda de Angular, mostrando sua capacidade de enfrentar problemas complexos com soluções inovadoras. Suas habilidades de programação são de primeira classe.',
+      'testimonial-mariano-role': 'Tech Lead na Performance Analytics por AMS',
+      'mindata-date': 'Mar 2023 — Jul 2024',
+      'mindata-role': 'Engenheiro Angular · Cliente: RIU Hotels (Hotelaria Global)',
+      'mindata-p1': 'Garanti a estabilidade da plataforma e as operações de CI/CD em <span class="highlight">8 aplicações Angular implantadas globalmente</span> para RIU Hotels, uma das maiores redes hoteleiras do mundo. Responsável pelo pipeline de deployment Jenkins e coordenação de releases entre ambientes usando metodologia Kanban.',
+      'mindata-p2': 'Identifiquei e resolvi incidentes críticos em produção, <span class="highlight">reduzindo incidentes visíveis para usuários</span> e garantindo a confiabilidade em aplicações que servem hóspedes de hotéis em todo o mundo. Apliquei padrões de qualidade de código através de SonarQube e revisões de código sistemáticas.',
+      'testimonial-marcos': 'Agustín é um programador com amplos conhecimentos de Angular e JavaScript que se caracteriza pelo seu compromisso com a qualidade. Além disso, por suas soft skills, o trabalho diário com ele é muito confortável e construtivo.',
+      'testimonial-marcos-role': 'Arquiteto de Software · Supervisionou Agustin diretamente',
+      'deepcreek-date': 'Mar 2023 — Jul 2023',
+      'deepcreek-role': 'Instrutor Angular · Cliente: Dedalus (Software Médico)',
+      'deepcreek-p1': 'Projetei e ministrei um <span class="highlight">programa de capacitação Angular de 4 meses</span> para a Dedalus, uma empresa líder de software médico. Mentoreei 6 estagiários — estudantes da Universidade de Málaga e formação profissional — cobrindo o ecossistema completo: Routing, Components, Services, Directives, Pipes, RxJS e NgRx.',
+      'deepcreek-p2': 'Liderei o programa usando SCRUM-Kanban com desenvolvimento iterativo e revisões entre pares. Os estagiários construíram projetos individuais com APIs públicas e um backend de autenticação personalizado. <span class="highlight">100% dos participantes se formaram capazes de desenvolver aplicações de forma independente.</span>',
+      'distillery-date': 'Ago 2021 — Mar 2023',
+      'distillery-role': 'Desenvolvedor Angular · Cliente: Filmtrack (Entretenimento)',
+      'distillery-p1': 'Construí um <span class="highlight">CRM de gestão de direitos</span> em Angular para a Filmtrack, gerenciando contratos e licenças para clientes de entretenimento. Liderei a migração de sistemas CRM legados e estabeleci padrões de arquitetura Angular adotados por toda a equipe de engenharia.',
+      'distillery-li1': 'Estabeleci <span class="highlight">padrões de gestão de estado com Akita</span> adotados como padrão da equipe',
+      'distillery-li2': 'Ministrei apresentações técnicas sobre melhores práticas em Angular, tornando-me a <span class="highlight">referência de onboarding para novos desenvolvedores</span>',
+      'distillery-li3': 'Expandi capacidades full-stack treinando em tickets de backend (C#)',
+      'testimonial-daian': 'Tive o prazer de trabalhar com Agustín por quase 2 anos na Overactive. Agustín tem um talento natural para escrever código limpo e mantível, e uma grande capacidade de resolver problemas complexos. Recomendo-o amplamente como engenheiro de software.',
+      'testimonial-daian-role': 'Engenheiro de Software · Trabalhou na mesma equipe na Overactive',
+      'trenda-date': 'Mar 2018 — Jan 2021',
+      'trenda-role': 'Líder Técnico Frontend',
+      'trenda-p1': 'Liderei <span class="highlight">duas equipes multifuncionais (9 membros no total)</span>: 2 devs FE, 2 devs BE, 1 BA e 2 designers UX. Gerenciei relacionamentos com clientes através de reuniões regulares e ciclos de feedback, entregando incrementos semanais usando SCRUM-Kanban.',
+      'trenda-li1': 'Lancei <span class="highlight">vlife</span>, um app móvel com Ionic 5 do conceito à produção',
+      'trenda-li2': 'Construí um wrapper Java para o <span class="highlight">SDK do Mercado Libre</span> (integração Ionic-Capacitor)',
+      'trenda-li3': 'Realizei demos para clientes e alinhei entregas com expectativas ao longo dos sprints',
+      'testimonial-nicolas': 'Agustín foi um ótimo líder técnico. Ele sabia como se reunir com cada área do projeto (BE, UX, PM) para construir uma arquitetura frontend organizada. Ele me deu as diretrizes para desenvolver de forma clara e mantível. E também me ajudou com qualquer problema que surgisse.',
+      'testimonial-nicolas-role': 'Desenvolvedor Frontend · Reportou a Agustin diretamente',
+      'overactive-date': 'Mar 2018 — Fev 2021',
+      'overactive-role': 'Desenvolvedor Frontend · Clientes: XPO Logistics, IPTI Healthcare',
+      'overactive-p1': 'Construí <span class="highlight">sistemas de rastreamento GPS em tempo real e monitoramento IoT</span> para XPO Logistics, depois transferido para IPTI Healthcare para implementar rastreamento de bandejas de material cirúrgico em hospitais dos EUA — aplicando a mesma arquitetura IoT em tempo real a um contexto de saúde.',
+      'overactive-li1': 'Alcancei <span class="highlight">mais de 90% de cobertura de testes</span> com Jasmine; migrei versões do Angular com zero tempo de inatividade',
+      'overactive-li2': 'Estabeleci fluxos de automação QA CI/CD; resolvi problemas de quality gates do SonarQube',
+      'overactive-li3': 'Documentei microserviços backend com Swagger; colaborei com UX em melhorias de funcionalidades',
+      'beereal-date': 'Mar 2017 — Mar 2018',
+      'beereal-role': 'Desenvolvedor Full Stack · Clientes: DHL (Logística), Honeybee Health',
+      'beereal-p1': 'Trabalhei com <span class="highlight">DHL em soluções logísticas full-stack</span>, participando de discussões de arquitetura para melhorar o desempenho do rastreamento GPS de caminhões. Também construí um CRM multiplataforma com Vue.js para Honeybee Health na XOOR, consumindo APIs via GraphQL e integrando com Shopify.',
+      'beereal-li1': 'Intranet corporativa em Angular 6 com Firebase e Parse',
+      'beereal-li2': 'Net Ops Assistant: app móvel híbrido (Ionic 3, Node.js, SQL)',
+      'beereal-li3': 'CAP Reports &amp; Brain Portal: consoles web Angular 6 com Node.js e MongoDB',
+      'testimonial-svitlana': 'Trabalhei com Agustín no desenvolvimento de um app móvel para DHL. Agustín é um desenvolvedor dedicado e engenhoso. Ele foi capaz de criar o app para Android e iOS e forneceu um excelente suporte durante o ciclo de construção e testes.',
+      'testimonial-svitlana-role': 'Sr Project Manager na DHL Express · Cliente de Agustin',
+      'earlier-title': 'Carreira Anterior · Base em QA &amp; Testing (2014 — 2017)',
+      'globant-role': 'Engenheiro QA · Cliente: Open Bank (Banco Europeu)',
+      'globant-p1': 'Construí suítes de testes automatizados e testes de API para microserviços Java. Testes de regressão com Selenium para aplicações frontend em um ambiente bancário europeu.',
+      'technisys-role': 'Engenheiro QA · Serviços Financeiros',
+      'technisys-p1': 'Desenvolvi automação de regressão para plataformas financeiras com Selenium. Construí experiência base em QA bancário que levou à atribuição na Globant.',
+      'tsoft-role': 'Analista de Testes → Líder de Testes',
+      'tsoft-p1': 'Comecei como Analista de Testes em sistemas bancários, promovido a Líder QA gerenciando equipes de testes com Scrum. Testes de caixa branca, testes unitários .NET, gestão de incidentes via JIRA.',
+      'cta-heading': 'Vamos construir algo extraordinário.',
+      'cta-sub': 'Se meu trabalho ressoa com o que você está procurando, adoraria conversar.',
+      'cta-email': 'Enviar um email',
+      'cta-linkedin': 'Conectar no LinkedIn',
+      'footer': 'Feito com código, café e uma ajudinha da IA.'
+    }
+  };
+
+  var langOrder = ['en', 'es', 'pt'];
+  var langToggle = document.getElementById('langToggle');
+  var langLabel = document.getElementById('langLabel');
+  var savedLang = localStorage.getItem('lang') || 'en';
+  var currentLang = langOrder.indexOf(savedLang) !== -1 ? savedLang : 'en';
+
+  function applyLang(lang) {
+    currentLang = lang;
+    var dict = translations[lang];
+    if (!dict) return;
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    root.setAttribute('lang', lang);
+    localStorage.setItem('lang', lang);
+    langLabel.textContent = lang.toUpperCase();
+  }
+
+  applyLang(currentLang);
+
+  langToggle.addEventListener('click', function() {
+    var idx = langOrder.indexOf(currentLang);
+    var next = langOrder[(idx + 1) % langOrder.length];
+    applyLang(next);
   });
 })();
 </script>
