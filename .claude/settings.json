@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "Bash(git *)",
+      "Bash(wc *)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(dig *)",
+      "Bash(curl *)",
+      "Bash(caddy *)",
+      "Bash(systemctl status *)"
+    ]
+  },
+  "rules": [
+    "Siempre hablá en español.",
+    "Al terminar una sesión con cambios significativos, actualizá CLAUDE.md (estructura, arquitectura, changelog). Usá el comando /update-context si no estás seguro.",
+    "Este proyecto no usa build tools ni frameworks. Todo es vanilla HTML/CSS/JS inline.",
+    "Cuando modifiques texto visible, actualizá los 3 idiomas en el objeto translations (en/es/pt).",
+    "Antes de pushear, verificá que CV-export.html esté sincronizado con CV-web.html en contenido y traducciones.",
+    "El servidor está en /var/www/cv en el VPS (216.238.115.79). Deploy es: cd /var/www/cv && git pull."
+  ]
+}
