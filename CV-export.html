@@ -5,307 +5,449 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agustin Diez Martinez · CV</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --cream-bg: #f3eee6;
-      --cream-light: #f8f4ee;
-      --cream-warm: #ebe6dc;
-      --cream-border: #ddd6c8;
-      --cream-card: #fdfcf9;
-      --green-pastel: #a8c9a8;
-      --green-soft: #b8d4b8;
-      --green-mint: #d4e8d4;
-      --green-deep: #6b9b6b;
-      --green-dark: #5a8a5a;
-      --text-dark: #3d3d3d;
-      --text-muted: #6b6b6b;
+      --bg: #f0e8dc;
+      --bg-subtle: #e6dace;
+      --surface: rgba(252,245,235,0.85);
+      --border: rgba(170,140,100,0.2);
+      --border-light: rgba(185,155,115,0.14);
+      --accent: #96764a;
+      --accent-light: rgba(165,130,80,0.28);
+      --accent-bg: rgba(165,130,80,0.08);
+      --accent-surface: rgba(165,130,80,0.14);
+      --text: #3e3428;
+      --text-secondary: #5e5040;
+      --text-muted: #8e8070;
+      --shadow-sm: 0 1px 3px rgba(80,50,20,0.05);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --purple-bg: rgba(170,140,110,0.1);
+      --purple-border: rgba(170,140,110,0.22);
+      --purple-text: #7a6550;
     }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'DM Sans', -apple-system, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       line-height: 1.6;
-      color: var(--text-dark);
-      background: linear-gradient(160deg, var(--cream-bg) 0%, #e8e2d8 50%, #edebe4 100%);
+      color: var(--text);
+      background: var(--bg);
       min-height: 100vh;
       padding: 0;
       margin: 0;
     }
     .cv-wrapper {
-      width: 95%;
-      max-width: 95%;
+      max-width: 920px;
       margin: 0 auto;
-      box-sizing: border-box;
+      padding: 16px 20px 32px;
     }
 
-    .profile-header {
-      background: linear-gradient(135deg, var(--cream-light) 0%, var(--green-mint) 100%);
-      padding: 20px 24px;
-      margin: 24px 0 20px;
-      border-radius: 12px;
-      border: 1px solid var(--cream-border);
-      border-left: 5px solid var(--green-deep);
-      box-shadow: 0 8px 32px rgba(107, 155, 107, 0.12);
+    /* ───── Header ───── */
+    .header {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      padding: 18px 22px;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      width: 100%;
-      box-sizing: border-box;
-      overflow: hidden;
+      gap: 18px;
     }
-    .profile-header .avatar-wrap {
+    .avatar-wrap {
       flex-shrink: 0;
-      width: 86px;
-      height: 86px;
+      width: 72px;
+      height: 72px;
       border-radius: 50%;
       overflow: hidden;
-      background: var(--cream-light);
-      border: 3px solid var(--green-soft);
-      padding: 0;
+      border: 2.5px solid var(--accent-light);
     }
-    .profile-header .avatar {
-      width: 80px;
-      height: 80px;
+    .avatar {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      border-radius: 50%;
       display: block;
     }
-    .profile-header .info {
-      flex: 1;
-      min-width: 200px;
+    .header-info { flex: 1; }
+    .header-info h1 {
+      font-size: 1.125rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.03em;
+      line-height: 1.3;
+      margin-bottom: 1px;
     }
-    .profile-header h1 {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--green-dark);
-      margin-bottom: 6px;
-      letter-spacing: -0.02em;
-    }
-    .profile-header .role-title {
-      font-size: 10.5pt;
+    .header-role {
+      font-size: 0.75rem;
       font-weight: 600;
-      color: var(--green-deep);
-      margin-bottom: 0;
-      padding-bottom: 12px;
-      border-bottom: 2px solid var(--green-soft);
+      color: var(--accent);
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+      border-bottom: 2px solid var(--accent-light);
     }
-    .profile-header .framework-logos {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 20px;
-      margin-bottom: 12px;
-    }
-    .profile-header .framework-logos img {
-      width: 20px;
-      height: 20px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-    .profile-header .contact {
-      font-size: 9pt;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-      line-height: 1.5;
-    }
-    .profile-header .social-links {
+    .header-contact {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px 20px;
+      gap: 4px 14px;
+      font-size: 0.6875rem;
+      color: var(--text-secondary);
     }
-    .profile-header .social-links a {
+    .header-contact span {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      color: var(--green-dark);
-      text-decoration: none;
-      font-size: 9pt;
+      gap: 4px;
     }
-    .profile-header .social-links svg {
-      width: 18px;
-      height: 18px;
+    .header-contact svg {
+      width: 11px;
+      height: 11px;
       flex-shrink: 0;
+      color: var(--accent);
+    }
+    .header-contact a {
+      color: var(--accent);
+      text-decoration: none;
     }
 
-    .main-content {
-      padding: 0 0 40px;
-      max-width: 100%;
-      box-sizing: border-box;
-    }
-
-    section {
+    /* ───── Skills rows ───── */
+    .skills-section {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      padding: 14px 20px;
       margin-bottom: 12px;
-      padding: 14px 18px;
-      width: 100%;
-      background: var(--cream-card);
-      border-radius: 8px;
-      border: 1px solid var(--cream-border);
-      border-left: 3px solid var(--green-pastel);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
-    .section-header {
+    .skills-title {
+      font-size: 0.5625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .skill-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 3px 0;
+    }
+    .skill-row-label {
+      font-size: 0.5625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      width: 72px;
+      flex-shrink: 0;
+      text-align: right;
+    }
+    .skill-row-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      flex: 1;
+    }
+    .skill-tag {
+      font-size: 0.5625rem;
+      padding: 2px 7px;
+      border-radius: 3px;
+      background: var(--accent-bg);
+      color: var(--text-secondary);
+      font-weight: 500;
+      white-space: nowrap;
+      line-height: 1.4;
+    }
+
+    /* ───── Experience ───── */
+    .experience {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--accent-light);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      padding: 14px 18px;
+      margin-bottom: 10px;
+    }
+    .exp-header {
       display: flex;
       align-items: center;
       gap: 10px;
       margin-bottom: 6px;
       padding-bottom: 5px;
-      border-bottom: 1px solid var(--green-mint);
-    }
-    .section-header .company-logo {
-      width: 32px;
-      height: 32px;
-      object-fit: contain;
-      border-radius: 6px;
-      background: var(--cream-warm);
-      padding: 3px;
-      flex-shrink: 0;
-    }
-    .section-header .company-logo.hidden {
-      display: none;
+      border-bottom: 1px solid var(--border-light);
     }
     .company-logos {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
     }
-    .company-logos .company-logo {
-      width: 28px;
-      height: 28px;
+    .company-logo {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      border-radius: 5px;
+      background: var(--bg-subtle);
+      padding: 2px;
+      flex-shrink: 0;
     }
-    section h2 {
-      font-size: 11pt;
+    .company-logo.hidden { display: none; }
+    .exp-header h2 {
+      font-size: 0.8125rem;
       font-weight: 700;
-      color: var(--green-dark);
+      color: var(--text);
       margin: 0;
     }
-    .role {
-      font-weight: 600;
-      margin-bottom: 6px;
-      font-size: 9.5pt;
-      color: var(--green-deep);
+    .exp-header .date {
+      font-size: 0.6875rem;
+      color: var(--text-muted);
+      font-weight: 400;
     }
-    section p {
-      margin-bottom: 6px;
+    .exp-role {
+      font-weight: 600;
+      font-size: 0.6875rem;
+      color: var(--accent);
+      margin-bottom: 5px;
+    }
+    .experience p {
+      margin-bottom: 4px;
+      color: var(--text-secondary);
+      font-size: 0.6875rem;
+      line-height: 1.55;
       text-align: justify;
-      color: var(--text-dark);
-      font-size: 9.5pt;
+    }
+    .experience ul {
+      margin: 3px 0 3px 14px;
+    }
+    .experience li {
+      margin-bottom: 2px;
+      color: var(--text-secondary);
+      font-size: 0.6875rem;
       line-height: 1.5;
     }
-    section ul {
-      margin: 6px 0 6px 18px;
+    .experience li::marker {
+      color: var(--accent-light);
     }
-    section li {
-      margin-bottom: 2px;
-      color: var(--text-dark);
-      font-size: 9.5pt;
+    .highlight {
+      font-weight: 600;
+      color: var(--text);
     }
-    section li::marker {
-      color: var(--green-pastel);
-    }
-    .tech {
-      margin-top: 8px;
+
+    /* Tech pills */
+    .tech-row {
+      margin-top: 6px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 5px;
+      gap: 3px;
     }
     .tech-label {
-      font-size: 7.5pt;
-      font-weight: 600;
+      font-size: 0.5625rem;
+      font-weight: 700;
       color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       margin-right: 2px;
     }
-    .tech .pill {
-      font-size: 7.5pt;
-      color: var(--green-dark);
-      padding: 3px 8px;
-      background: linear-gradient(135deg, var(--green-mint) 0%, rgba(184,212,184,0.5) 100%);
-      border-radius: 12px;
-      border: 1px solid var(--green-soft);
+    .tech-pill {
+      font-size: 0.5625rem;
+      color: var(--accent);
+      padding: 2px 6px;
+      background: var(--accent-bg);
+      border-radius: 10px;
+      border: 1px solid var(--accent-light);
       white-space: nowrap;
+      font-weight: 500;
     }
-    .ai-tools {
-      margin-top: 8px;
-      padding: 6px 10px;
-      background: linear-gradient(135deg, #f0e6fa 0%, #e8f4f8 100%);
-      border-radius: 8px;
-      border: 1px solid #d4c4e8;
-      display: flex;
+
+    /* AI badge */
+    .ai-badge {
+      margin-top: 6px;
+      padding: 5px 10px;
+      background: var(--purple-bg);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--purple-border);
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
+      gap: 8px;
     }
-    .ai-tools .label {
-      font-size: 7.5pt;
-      font-weight: 600;
-      color: var(--text-dark);
+    .ai-badge .ai-label {
+      font-size: 0.5rem;
+      font-weight: 700;
+      color: var(--purple-text);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
-    .ai-tools .tool {
+    .ai-tool {
       display: inline-flex;
       align-items: center;
       gap: 4px;
       padding: 2px 6px;
-      background: rgba(255,255,255,0.7);
+      background: var(--surface);
       border-radius: 4px;
-      font-size: 7.5pt;
+      font-size: 0.5625rem;
       font-weight: 500;
-      color: var(--text-dark);
-      border: 1px solid #e0d4f0;
+      color: var(--text);
+      border: 1px solid var(--purple-border);
     }
-    .ai-tools .tool img {
-      width: 14px;
-      height: 14px;
+    .ai-tool img {
+      width: 11px;
+      height: 11px;
       object-fit: contain;
     }
 
-    .music-card {
-      margin-top: 12px;
-      margin-bottom: 32px;
+    /* ───── Earlier Career ───── */
+    .earlier-career {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
       padding: 14px 18px;
-      background: linear-gradient(135deg, #fff5eb 0%, #ffe8d6 50%, #ffecd2 100%);
-      border-radius: 8px;
-      border: 1px solid #e8d4c4;
-      border-left: 4px solid #e07c3c;
-      box-shadow:
-        0 1px 0 rgba(255,255,255,0.9) inset,
-        0 2px 4px rgba(0,0,0,0.06),
-        0 4px 12px rgba(224,124,60,0.12);
+      margin-bottom: 10px;
     }
-    .music-card h2 {
-      font-size: 11pt;
+    .earlier-career > h2 {
+      font-size: 0.75rem;
       font-weight: 700;
-      color: #b85c2a;
-      margin-bottom: 6px;
-    }
-    .music-card p {
-      color: var(--text-dark);
+      color: var(--text);
       margin-bottom: 8px;
-      font-size: 9.5pt;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--border-light);
     }
-    .music-card a {
-      display: inline-flex;
+    .career-entry {
+      padding: 5px 0;
+    }
+    .career-entry + .career-entry {
+      border-top: 1px solid var(--border-light);
+      margin-top: 3px;
+      padding-top: 6px;
+    }
+    .career-entry-header {
+      display: flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 12px;
-      background: #fff;
-      border-radius: 10px;
-      color: #e07c3c;
-      text-decoration: none;
-      font-size: 8.5pt;
-      font-weight: 600;
-      border: 1px solid #e8b88a;
+      margin-bottom: 2px;
     }
-    .music-card a img {
-      width: 16px;
-      height: 16px;
+    .career-entry-header .company-logo {
+      width: 20px;
+      height: 20px;
+    }
+    .career-entry h3 {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .career-entry h3 span {
+      font-weight: 400;
+      color: var(--text-muted);
+      font-size: 0.625rem;
+    }
+    .career-role {
+      font-size: 0.625rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+    .career-entry p {
+      font-size: 0.625rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 3px;
     }
 
-    /* Print styles */
+    /* ───── Testimonials ───── */
+    .testimonial {
+      margin-bottom: 10px;
+      padding: 10px 14px 10px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+    .testimonial::before {
+      content: '\201C';
+      position: absolute;
+      top: 4px;
+      left: 8px;
+      font-size: 1.5rem;
+      line-height: 1;
+      color: var(--accent-light);
+      font-family: Georgia, serif;
+    }
+    .testimonial-text {
+      font-size: 0.625rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      padding-left: 14px;
+      margin-bottom: 6px;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-left: 14px;
+    }
+    .testimonial-name {
+      font-size: 0.5625rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .testimonial-role {
+      font-size: 0.5rem;
+      color: var(--text-muted);
+    }
+    .testimonial-badge {
+      margin-left: auto;
+      font-size: 0.5rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .testimonial-badge svg {
+      width: 9px;
+      height: 9px;
+    }
+
+    /* ───── Footer ───── */
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+    }
+    .lang-group {
+      display: flex;
+      gap: 14px;
+      font-size: 0.625rem;
+      color: var(--text-secondary);
+    }
+    .lang-name {
+      font-weight: 600;
+      color: var(--text);
+    }
+    .music-note {
+      font-size: 0.5625rem;
+      color: var(--text-muted);
+    }
+    .music-note a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ───── Print ───── */
     @media print {
       @page {
         size: A4;
-        margin: 12mm;
+        margin: 10mm;
       }
       * {
         -webkit-print-color-adjust: exact !important;
@@ -313,48 +455,16 @@
       }
       html, body {
         background: white !important;
-        background-color: white !important;
         padding: 0 !important;
-        box-sizing: border-box !important;
       }
       .cv-wrapper {
-        width: 95% !important;
-        max-width: 95% !important;
-        margin: 0 auto !important;
-      }
-      .profile-header {
-        margin: 16px 0 20px !important;
-        width: 100% !important;
-        break-inside: avoid;
-        box-shadow: none !important;
-        overflow: hidden !important;
-      }
-      .profile-header .avatar-wrap {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-      .main-content {
-        padding: 0 !important;
         max-width: 100% !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
+        padding: 0 !important;
       }
-      section, .music-card {
+      .header, .skills-section, .experience, .earlier-career, .footer-row, .testimonial {
         break-inside: avoid;
-        box-shadow: none !important;
         page-break-inside: avoid;
-      }
-      .music-card {
-        padding: 12px 16px !important;
-        margin-bottom: 24px !important;
-      }
-      section {
-        margin-bottom: 10px !important;
-        padding: 12px 16px !important;
-      }
-      .profile-header .social-links a,
-      .music-card a {
-        color: var(--green-dark) !important;
+        box-shadow: none !important;
       }
       a[href]::after {
         content: none !important;
@@ -364,211 +474,354 @@
 </head>
 <body>
   <div class="cv-wrapper">
-  <header class="profile-header">
+
+  <!-- Header -->
+  <header class="header">
     <div class="avatar-wrap">
-      <img class="avatar" src="https://media.licdn.com/dms/image/v2/D4D03AQFrQk4kojDLKA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1710338970440?e=1773273600&v=beta&t=pxyP-6I6qT0rf0yNlpYVida9_iVb_OrJSOjCxFFe39I" alt="Agustin Diez Martinez">
+      <img class="avatar" src="avatar.jpg" alt="Agustin Diez Martinez">
     </div>
-    <div class="info">
+    <div class="header-info">
       <h1>Agustin Diez Martinez</h1>
-      <span class="role-title">Frontend Architect & Technical Leader</span>
-      <div class="framework-logos">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" alt="Angular" width="20" height="20" title="Angular">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" width="20" height="20" title="React">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" alt="Vue" width="20" height="20" title="Vue">
-      </div>
-      <div class="contact">
-        agustindxm@gmail.com · +54 9 1122965128 · Tandil, Buenos Aires, Argentina
-      </div>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/agustin-diez-martinez-76759a60/" target="_blank" rel="noopener noreferrer">linkedin.com/in/agustin-diez-martinez-76759a60</a>
-        <a href="https://github.com/agusisa" target="_blank" rel="noopener noreferrer">github.com/agusisa</a>
+      <div class="header-role">Frontend Architect & Technical Leader</div>
+      <div class="header-contact">
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          agustindxm@gmail.com
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +54 9 1122965128
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          Tandil, Argentina · UTC−3
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <a href="https://www.linkedin.com/in/agustin-diez-martinez-76759a60/">linkedin.com/in/agustin-diez-martinez</a>
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          <a href="https://github.com/agusisa">github.com/agusisa</a>
+        </span>
       </div>
     </div>
   </header>
 
-  <main class="main-content">
-    <section>
-      <div class="section-header">
+  <!-- Skills -->
+  <div class="skills-section">
+    <div class="skills-title">Core Skills</div>
+    <div class="skill-row">
+      <span class="skill-row-label">Frontend</span>
+      <div class="skill-row-items">
+        <span class="skill-tag">Angular</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Vue</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">RxJS</span>
+        <span class="skill-tag">NgRx</span>
+        <span class="skill-tag">Signals</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <span class="skill-row-label">Architecture</span>
+      <div class="skill-row-items">
+        <span class="skill-tag">Design Systems</span>
+        <span class="skill-tag">Component Libraries</span>
+        <span class="skill-tag">Micro-frontends</span>
+        <span class="skill-tag">Nx Monorepo</span>
+        <span class="skill-tag">Dev Containers</span>
+        <span class="skill-tag">Docker</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <span class="skill-row-label">DevOps</span>
+      <div class="skill-row-items">
+        <span class="skill-tag">Azure DevOps</span>
+        <span class="skill-tag">GCP</span>
+        <span class="skill-tag">Jenkins</span>
+        <span class="skill-tag">CI/CD</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <span class="skill-row-label">AI</span>
+      <div class="skill-row-items">
+        <span class="skill-tag">Claude</span>
+        <span class="skill-tag">Cursor</span>
+        <span class="skill-tag">OpenCode</span>
+        <span class="skill-tag">Ollama</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <span class="skill-row-label">Leadership</span>
+      <div class="skill-row-items">
+        <span class="skill-tag">Team Mentoring</span>
+        <span class="skill-tag">SCRUM</span>
+        <span class="skill-tag">Technical Strategy</span>
+        <span class="skill-tag">Code Reviews</span>
+        <span class="skill-tag">Jira</span>
+        <span class="skill-tag">Azure Boards</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <span class="skill-row-label">Ownership</span>
+      <div class="skill-row-items">
+        <span class="skill-tag">Client Demos</span>
+        <span class="skill-tag">Stakeholder Alignment</span>
+        <span class="skill-tag">Release Coordination</span>
+        <span class="skill-tag">Sprint Planning</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Experience -->
+  <main>
+
+    <section class="experience">
+      <div class="exp-header">
         <div class="company-logos">
           <img class="company-logo" src="assets/dualboot-logo.png" alt="DualBoot">
           <img class="company-logo" src="https://logos-api.apistemic.com/domain:suzy.com" alt="Suzy" onerror="this.classList.add('hidden')">
         </div>
-        <h2>DualBoot · Nov 2024 - Present</h2>
+        <div>
+          <h2>DualBoot Partners</h2>
+          <span class="date">Nov 2024 — Present</span>
+        </div>
       </div>
-      <div class="role">Frontend Architect · Client: Suzy (AI-powered market research platform)</div>
-      <p>Serving as Frontend Architect for Suzy, an AI-powered platform that delivers real-time consumer insights across quantitative and qualitative workflows with advanced segmentation.</p>
-      <p>I lead the frontend architecture and delivery of multiple solutions with a small, distributed team — currently working with both Angular and React. I set technical direction, establish standards and best practices, and mentor engineers through design and implementation to ensure scalability, performance, and maintainability. For daily development, I leverage AI-assisted workflows with Claude and Cursor to accelerate implementation and maintain code quality. I coordinate deployments using the Azure suite, partnering with cross-functional stakeholders to align timelines, reduce risk, and keep releases predictable.</p>
-      <div class="ai-tools" data-ai-tools="Claude,Cursor">
-        <span class="label">AI tools used:</span>
-        <span class="tool">
-          <img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=64" alt="Claude" width="18" height="18">
-          Claude
-        </span>
-        <span class="tool">
-          <img src="https://www.google.com/s2/favicons?domain=cursor.com&sz=64" alt="Cursor" width="18" height="18">
-          Cursor
-        </span>
+      <div class="exp-role">Frontend Architect · Client: Suzy (AI-powered market research platform)</div>
+      <p>Architecting and delivering multiple frontend platforms for <span class="highlight">Suzy's AI-powered market research engine</span> serving enterprise clients with real-time consumer insights across quantitative and qualitative workflows.</p>
+      <p>Leading frontend architecture and delivery with a distributed team across <span class="highlight">Angular and React</span>. Setting technical direction, establishing standards and component libraries, and mentoring engineers on architecture patterns. Pioneering <span class="highlight">AI-assisted development workflows with Claude and Cursor</span> that accelerate feature delivery while maintaining code quality. Coordinating releases through Azure DevOps pipelines.</p>
+      <div class="ai-badge">
+        <span class="ai-label">AI-Assisted</span>
+        <span class="ai-tool"><img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=64" alt="Claude"> Claude</span>
+        <span class="ai-tool"><img src="https://www.google.com/s2/favicons?domain=cursor.com&sz=64" alt="Cursor"> Cursor</span>
       </div>
-      <div class="tech"><span class="tech-label">Technologies:</span><span class="pill">Angular 20</span><span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">Claude</span><span class="pill">Cursor</span><span class="pill">Microsoft Azure (Azure DevOps)</span></div>
+      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 20</span><span class="tech-pill">React</span><span class="tech-pill">TypeScript</span><span class="tech-pill">Azure DevOps</span><span class="tech-pill">Claude</span><span class="tech-pill">Cursor</span></div>
     </section>
 
-    <section>
-      <div class="section-header">
+    <section class="experience">
+      <div class="exp-header">
         <img class="company-logo" src="https://logos-api.apistemic.com/domain:applaudo.com" alt="Applaudo" onerror="this.classList.add('hidden')">
-        <h2>Applaudo · Jul 2024 - Nov 2024</h2>
+        <div>
+          <h2>Applaudo</h2>
+          <span class="date">Jul 2024 — Nov 2024</span>
+        </div>
       </div>
-      <div class="role">Technical Lead · Government Client: Municipality of Zacatecoluca (El Salvador)</div>
-      <p>Led a 7-person frontend team to deliver a Tax Management System for the Municipality of Zacatecoluca, under El Salvador's Secretariat of Technological Innovation. Drove execution across a three-month delivery window; the client later paused the initiative due to funding constraints.</p>
-      <p>Partnered closely with UX and Backend teams to refine requirements, prioritize scope, and maintain delivery velocity. Coordinated deployments with DevOps, upheld engineering best practices (code quality, reviews, CI discipline), and conducted stakeholder demos to align expectations and secure sign-offs.</p>
-      <div class="tech"><span class="tech-label">Technologies:</span><span class="pill">Angular 18</span><span class="pill">NgRx</span><span class="pill">Signals</span><span class="pill">TypeScript</span><span class="pill">Google Cloud Platform (GCP)</span></div>
+      <div class="exp-role">Technical Lead · Government Client: Municipality of Zacatecoluca (El Salvador)</div>
+      <p>Led a <span class="highlight">7-person frontend team</span> to deliver a Tax Management System for the Municipality of Zacatecoluca under El Salvador's Secretariat of Technological Innovation. Defined architecture, established code review processes, and <span class="highlight">drove execution across a three-month delivery window</span>.</p>
+      <p>Partnered closely with UX and Backend teams to refine requirements, prioritize scope, and maintain delivery velocity. Coordinated deployments with DevOps, conducted <span class="highlight">stakeholder demos</span> to align expectations and secure sign-offs.</p>
+      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 18</span><span class="tech-pill">NgRx</span><span class="tech-pill">Signals</span><span class="tech-pill">TypeScript</span><span class="tech-pill">GCP</span></div>
     </section>
 
-    <section>
-      <div class="section-header">
+    <div class="testimonial">
+      <p class="testimonial-text">Agustin's expertise in Angular development is truly exceptional, and it significantly contributed to the success of our project. He demonstrated a deep understanding of Angular, showcasing his ability to tackle complex problems with innovative solutions. His coding skills are top-notch.</p>
+      <div class="testimonial-author">
+        <div><span class="testimonial-name">Mariano Ariel Rodriguez Sleimen</span><br><span class="testimonial-role">Tech Lead at Performance Analytics by AMS</span></div>
+        <span class="testimonial-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</span>
+      </div>
+    </div>
+
+    <section class="experience">
+      <div class="exp-header">
         <img class="company-logo" src="https://logos-api.apistemic.com/domain:mindata.es" alt="MinData" onerror="this.classList.add('hidden')">
-        <h2>MinData · Mar 2023 - Jul 2024</h2>
+        <div>
+          <h2>MinData</h2>
+          <span class="date">Mar 2023 — Jul 2024</span>
+        </div>
       </div>
-      <div class="role">Angular Developer · RIU Hotels (Hospitality)</div>
-      <p>Member of a bug-fixing team maintaining and enhancing eight globally impactful Angular applications in the hospitality sector. Operated within Kanban methodology to identify and resolve critical issues quickly, minimizing impact on user experience.</p>
-      <p>Oversaw the full CI/CD process and deployments via Jenkins. Collaborated with the team to ensure updates and fixes were rolled out smoothly without disrupting operations.</p>
-      <div class="tech"><span class="tech-label">Technologies:</span><span class="pill">Angular 16</span><span class="pill">Jenkins</span><span class="pill">Nexus</span><span class="pill">SonarQube</span><span class="pill">Java</span></div>
+      <div class="exp-role">Angular Engineer · Client: RIU Hotels (Global Hospitality)</div>
+      <p>Ensured platform stability and CI/CD operations across <span class="highlight">8 globally deployed Angular applications</span> for RIU Hotels. Owned the Jenkins deployment pipeline and coordinated releases across environments using Kanban methodology.</p>
+      <p>Identified and resolved critical production issues, <span class="highlight">reducing user-facing incidents</span> and ensuring reliability across applications serving hotel guests worldwide.</p>
+      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 16</span><span class="tech-pill">Jenkins</span><span class="tech-pill">Nexus</span><span class="tech-pill">SonarQube</span><span class="tech-pill">Java</span></div>
     </section>
 
-    <section>
-      <div class="section-header">
+    <div class="testimonial">
+      <p class="testimonial-text">Agustín es un programador con amplios conocimientos de Angular y JavaScript que se caracteriza por su compromiso con la calidad. Además, por sus soft skills, el trabajo diario con él es muy cómodo y constructivo.</p>
+      <div class="testimonial-author">
+        <div><span class="testimonial-name">Marcos Méndez Filesi</span><br><span class="testimonial-role">Software Architect · Managed Agustin directly</span></div>
+        <span class="testimonial-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</span>
+      </div>
+    </div>
+
+    <section class="experience">
+      <div class="exp-header">
         <img class="company-logo" src="https://logos-api.apistemic.com/domain:dedalus.com" alt="Dedalus" onerror="this.classList.add('hidden')">
-        <h2>Deep Creek Solutions · Mar 2023 - Jul 2023</h2>
+        <div>
+          <h2>Deep Creek Solutions</h2>
+          <span class="date">Mar 2023 — Jul 2023</span>
+        </div>
       </div>
-      <div class="role">Angular Instructor · Client: Dedalus (Medical Software)</div>
-      <p>Mentored six interns — senior students from the University of Malaga and vocational trainees — over four months. Covered Angular from the ground up: Routing, Components, Services, Directives, Pipes, RxJS, and NgRx. Interns built individual projects with public APIs and a custom authentication backend.</p>
-      <p>Led the program using SCRUM-Kanban; interns documented progress on Trello with iterative development and peer reviews. Prepared participants for professional contribution; all graduated capable of independently developing applications.</p>
-      <div class="tech"><span class="tech-label">Technologies:</span><span class="pill">Angular</span><span class="pill">RxJS</span><span class="pill">NgRx</span><span class="pill">Trello</span></div>
+      <div class="exp-role">Angular Instructor · Client: Dedalus (Medical Software)</div>
+      <p>Designed and delivered a <span class="highlight">4-month Angular training program</span> for Dedalus. Mentored 6 interns covering the complete ecosystem: Routing, Components, Services, Directives, Pipes, RxJS, and NgRx. Led using SCRUM-Kanban with iterative development and peer reviews. <span class="highlight">100% of participants graduated capable of independent development.</span></p>
+      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular</span><span class="tech-pill">RxJS</span><span class="tech-pill">NgRx</span><span class="tech-pill">Trello</span></div>
     </section>
 
-    <section>
-      <div class="section-header">
+    <section class="experience">
+      <div class="exp-header">
         <img class="company-logo" src="https://logos-api.apistemic.com/domain:distillery.com" alt="Distillery" onerror="this.classList.add('hidden')">
-        <h2>Distillery · Aug 2021 - Mar 2023</h2>
+        <div>
+          <h2>Distillery</h2>
+          <span class="date">Aug 2021 — Mar 2023</span>
+        </div>
       </div>
-      <div class="role">Angular Developer · Client: Filmtrack (Media Entertainment)</div>
-      <p>Worked directly for client Filmtrack on media entertainment products. Developed a CRM in Angular with Akita for managing contracts and rights; migrated legacy CRM systems for multiple clients. Delivered a technical presentation on Angular best practices for onboarding new developers.</p>
+      <div class="exp-role">Angular Developer · Client: Filmtrack (Media Entertainment)</div>
+      <p>Built a <span class="highlight">rights management CRM</span> in Angular for Filmtrack, handling contracts and licensing for major media entertainment clients. Led the migration of legacy CRM systems and established Angular architecture patterns adopted across the engineering team.</p>
       <ul>
-        <li>Trained on backend tickets to expand full-stack capabilities</li>
-        <li>Built services following Akita design patterns</li>
-        <li>Drove Angular architecture and RxJS-oriented design patterns</li>
+        <li>Established <span class="highlight">Akita state management patterns</span> adopted as the team standard</li>
+        <li>Delivered technical presentations on Angular best practices, becoming the <span class="highlight">onboarding reference</span></li>
+        <li>Expanded full-stack capabilities by training on backend (C#) tickets</li>
       </ul>
-      <div class="tech"><span class="tech-label">Technologies:</span><span class="pill">Angular 11</span><span class="pill">Akita</span><span class="pill">RxJS</span><span class="pill">TypeScript</span><span class="pill">C#</span><span class="pill">MySQL</span><span class="pill">Jasmine</span></div>
+      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 11</span><span class="tech-pill">Akita</span><span class="tech-pill">RxJS</span><span class="tech-pill">TypeScript</span><span class="tech-pill">C#</span><span class="tech-pill">MySQL</span><span class="tech-pill">Jasmine</span></div>
     </section>
 
-    <section>
-      <div class="section-header">
-        <img class="company-logo" src="assets/trenda-logo.png" alt="Trenda">
-        <h2>Trenda Software · Mar 2018 - Jan 2021</h2>
+    <div class="testimonial">
+      <p class="testimonial-text">I had the pleasure of working with Agustin for almost 2 years at Overactive. Agustin has a natural talent for writing clean, maintainable code and a great ability to solve complex problems. I highly recommend them as a software engineer.</p>
+      <div class="testimonial-author">
+        <div><span class="testimonial-name">Daian Scuarissi</span><br><span class="testimonial-role">Software Engineer · Worked on same team at Overactive</span></div>
+        <span class="testimonial-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</span>
       </div>
-      <div class="role">Frontend Technical Leader</div>
-      <p>Led two cross-functional teams (2 FE, 2 BE devs, 1 BA, 2 UX designers). Managed client requirements through regular meetings and feedback cycles. Delivered weekly increments using SCRUM-Kanban; conducted retros, groomings, and daily standups.</p>
+    </div>
+
+    <section class="experience">
+      <div class="exp-header">
+        <img class="company-logo" src="assets/trenda-logo.png" alt="Trenda">
+        <div>
+          <h2>Trenda Software</h2>
+          <span class="date">Mar 2018 — Jan 2021</span>
+        </div>
+      </div>
+      <div class="exp-role">Frontend Technical Leader</div>
+      <p>Led <span class="highlight">two cross-functional teams (9 members total)</span>: 2 FE devs, 2 BE devs, 1 BA, and 2 UX designers. Managed client relationships through regular meetings and feedback cycles, delivering weekly increments using SCRUM-Kanban.</p>
       <ul>
-        <li>Developed vlife, a mobile app with Ionic 5</li>
-        <li>Built a Java wrapper for the Mercado Libre SDK (Ionic-Capacitor)</li>
+        <li>Shipped <span class="highlight">vlife</span>, a mobile app with Ionic 5 from concept to production</li>
+        <li>Built a Java wrapper for the <span class="highlight">Mercado Libre SDK</span> (Ionic-Capacitor integration)</li>
         <li>Performed client-facing demos and aligned deliverables with expectations</li>
       </ul>
-      <div class="tech"><span class="tech-label">Technologies:</span><span class="pill">Angular 8</span><span class="pill">Ionic 5</span><span class="pill">Node.js</span><span class="pill">Firebase</span></div>
+      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 8</span><span class="tech-pill">Ionic 5</span><span class="tech-pill">Node.js</span><span class="tech-pill">Firebase</span></div>
     </section>
 
-    <section>
-      <div class="section-header">
+    <div class="testimonial">
+      <p class="testimonial-text">Agustin was a great technical lead. He knew how to meet with each area of the project (BE, UX, PM) to build an organized frontend architecture. He gave me the guidelines to develop in a clear and maintainable way. And also helped me with any problems that came up.</p>
+      <div class="testimonial-author">
+        <div><span class="testimonial-name">Nicolás Beltrán Méndez</span><br><span class="testimonial-role">Frontend Developer · Reported to Agustin directly</span></div>
+        <span class="testimonial-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</span>
+      </div>
+    </div>
+
+    <section class="experience">
+      <div class="exp-header">
         <img class="company-logo" src="assets/overactive-logo.png" alt="Overactive">
-        <h2>Overactive · Mar 2018 - Feb 2021</h2>
+        <div>
+          <h2>Overactive</h2>
+          <span class="date">Mar 2018 — Feb 2021</span>
+        </div>
       </div>
-      <div class="role">Frontend Developer · Clients: XPO Logistics, IPTI Healthcare</div>
-      <p>Joined XPO Logistics leveraging prior logistics experience (BeeReal). Worked on real-time GPS tracking and IoT storage for package load status. Later transferred to IPTI Healthcare, applying IoT real-time tracking for surgical material trays in US hospitals.</p>
+      <div class="exp-role">Frontend Developer · Clients: XPO Logistics, IPTI Healthcare</div>
+      <p>Built <span class="highlight">real-time GPS tracking and IoT monitoring systems</span> for XPO Logistics, then transferred to IPTI Healthcare to implement surgical material tray tracking for US hospitals.</p>
       <ul>
-        <li>Delivered CI/CD QA automation; fixed bugs from SonarQube reports</li>
-        <li>Migrated to latest Angular versions; achieved 90%+ test coverage with Jasmine</li>
-        <li>Collaborated with UX team on enhancements; documented BE microservices with Swagger</li>
+        <li>Achieved <span class="highlight">90%+ test coverage</span> with Jasmine; migrated Angular versions with zero downtime</li>
+        <li>Established CI/CD QA automation workflows; resolved SonarQube quality gate issues</li>
+        <li>Documented backend microservices with Swagger; collaborated with UX on feature enhancements</li>
       </ul>
-      <div class="tech"><span class="tech-label">Technologies:</span><span class="pill">Angular 8 & 11</span><span class="pill">RxJS</span><span class="pill">NgRx</span><span class="pill">SonarQube</span><span class="pill">Cypress</span><span class="pill">AG-Grid</span><span class="pill">Jasmine</span></div>
+      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 8 & 11</span><span class="tech-pill">RxJS</span><span class="tech-pill">NgRx</span><span class="tech-pill">SonarQube</span><span class="tech-pill">Cypress</span><span class="tech-pill">AG-Grid</span><span class="tech-pill">Jasmine</span></div>
     </section>
 
-    <section>
-      <div class="section-header">
-        <img class="company-logo" src="assets/xoor-logo.png" alt="XOOR">
-        <h2>XOOR · Feb 2018 - Mar 2018</h2>
+    <section class="experience">
+      <div class="exp-header">
+        <div class="company-logos">
+          <img class="company-logo" src="https://logos-api.apistemic.com/domain:beerealit.com" alt="BeeReal" onerror="this.classList.add('hidden')">
+          <img class="company-logo" src="assets/xoor-logo.png" alt="XOOR">
+        </div>
+        <div>
+          <h2>BeeReal &amp; XOOR</h2>
+          <span class="date">Mar 2017 — Mar 2018</span>
+        </div>
       </div>
-      <div class="role">Vue.js Developer · Client: Honeybee Health</div>
-      <p>Built a cross-platform CRM (mobile, web, desktop) with Vue.js. Consumed backend APIs via GraphQL and integrated components into Shopify.</p>
-      <div class="tech"><span class="tech-label">Technologies:</span><span class="pill">Vue.js</span><span class="pill">GraphQL</span><span class="pill">Shopify</span></div>
-    </section>
-
-    <section>
-      <div class="section-header">
-        <img class="company-logo" src="https://logos-api.apistemic.com/domain:beerealit.com" alt="BeeReal" onerror="this.classList.add('hidden')">
-        <h2>BeeReal · Mar 2017 - Feb 2018</h2>
-      </div>
-      <div class="role">Full Stack Developer · Client: DHL (Logistics)</div>
-      <p>Worked with DHL on full-stack requirements and participated in architecture discussions with logistics-industry developers to improve truck GPS tracking performance. Also developed WordPress sites for local clients.</p>
+      <div class="exp-role">Full Stack Developer · Clients: DHL (Logistics), Honeybee Health</div>
+      <p>Worked with <span class="highlight">DHL on full-stack logistics solutions</span>, improving truck GPS tracking performance. Built a cross-platform CRM with Vue.js for Honeybee Health at XOOR, consuming APIs via GraphQL and integrating into Shopify.</p>
       <ul>
         <li>Company intranet in Angular 6 with Firebase and Parse</li>
         <li>Net Ops Assistant: hybrid mobile app (Ionic 3, Node.js, SQL)</li>
-        <li>CAP Reports & Brain Portal: Angular 6 web consoles with Node.js and MongoDB</li>
+        <li>CAP Reports &amp; Brain Portal: Angular 6 web consoles with Node.js and MongoDB</li>
       </ul>
-      <div class="tech"><span class="tech-label">Technologies:</span><span class="pill">Ionic 3</span><span class="pill">Angular 6</span><span class="pill">Node.js</span><span class="pill">MongoDB</span><span class="pill">Firebase</span><span class="pill">Parse</span></div>
+      <div class="tech-row"><span class="tech-label">Stack</span><span class="tech-pill">Angular 6</span><span class="tech-pill">Ionic 3</span><span class="tech-pill">Vue.js</span><span class="tech-pill">Node.js</span><span class="tech-pill">GraphQL</span><span class="tech-pill">MongoDB</span><span class="tech-pill">Firebase</span></div>
     </section>
 
-    <section>
-      <div class="section-header">
-        <img class="company-logo" src="https://logos-api.apistemic.com/domain:globant.com" alt="Globant" onerror="this.classList.add('hidden')">
-        <h2>Globant · Aug 2016 - Mar 2017</h2>
+    <div class="testimonial">
+      <p class="testimonial-text">I work with Agustin on development of mobile app for DHL. Agustin is dedicated and resourceful developer. He was able to create the app for Android and iOS and provided an excellent support through build and testing cycle.</p>
+      <div class="testimonial-author">
+        <div><span class="testimonial-name">Svitlana Syvetska</span><br><span class="testimonial-role">Sr Project Manager at DHL Express · Agustin's client</span></div>
+        <span class="testimonial-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</span>
       </div>
-      <div class="role">Quality Assurance Engineer · Client: Open Bank (European banking)</div>
-      <p>Assigned to a European bank based on prior QA experience in banking. Built automation test suites and API tests for Java microservices powering a REST API consumed by a mobile app. Developed automated regression tests for frontend (Selenium) on an employee management project.</p>
-      <div class="tech"><span class="tech-label">Technologies:</span><span class="pill">Java 8</span><span class="pill">Selenium</span><span class="pill">JMeter</span><span class="pill">TestNG</span><span class="pill">Jenkins</span><span class="pill">SoapUI</span><span class="pill">Postman</span></div>
-    </section>
-
-    <section>
-      <div class="section-header">
-        <img class="company-logo" src="assets/technisys-logo.png" alt="Technisys">
-        <h2>Technisys · Jul 2015 - May 2016</h2>
-      </div>
-      <div class="role">Quality Assurance Engineer · Financial Services</div>
-      <p>Developed regression automation tests for frontend with Selenium on financial services platforms. Gained foundational QA experience in banking that later led to assignments at Globant and Open Bank.</p>
-      <div class="tech"><span class="tech-label">Technologies:</span><span class="pill">Java 8</span><span class="pill">Selenium</span><span class="pill">JUnit</span><span class="pill">Cucumber</span><span class="pill">Jenkins</span><span class="pill">SoapUI</span></div>
-    </section>
-
-    <section>
-      <div class="section-header">
-        <img class="company-logo" src="https://logos-api.apistemic.com/domain:tsoftglobal.com" alt="Tsoft" onerror="this.classList.add('hidden')">
-        <h2>Tsoft · Jan 2015 - Apr 2015</h2>
-      </div>
-      <div class="role">Test Analyst · Banking / Levin Global</div>
-      <p>Designed and executed manual test cases on an online banking system. Managed test cases in HP Quality Center; reported and tracked incidents in JIRA. Generated mainframe users via TN3270; documented test cases and workflows.</p>
-      <div class="tech"><span class="tech-label">Technologies:</span><span class="pill">HP Quality Center</span><span class="pill">JIRA</span><span class="pill">SQL</span><span class="pill">TN3270</span></div>
-    </section>
-
-    <section>
-      <div class="section-header">
-        <img class="company-logo" src="https://logos-api.apistemic.com/domain:levinassets.com" alt="Levin Global" onerror="this.classList.add('hidden')">
-        <h2>Levin Global · Jun 2014 - Jan 2015</h2>
-      </div>
-      <div class="role">Testing Lead · Asset management, appraisals, software</div>
-      <p>QA lead for testing teams using Scrum. Created test cases and performed white-box testing; wrote unit tests for .NET code. Documented evidence, reported incidents in JIRA, ran SQL queries for validation. Maintained use-case documentation and flow diagrams while upholding QA standards.</p>
-      <div class="tech"><span class="tech-label">Technologies:</span><span class="pill">.NET</span><span class="pill">JIRA</span><span class="pill">SQL</span></div>
-    </section>
-
-    <div class="music-card">
-      <h2>Musician</h2>
-      <p>Besides tech, I make music. Listen to my tracks on SoundCloud.</p>
-      <a href="https://soundcloud.com/agustindxm" target="_blank" rel="noopener noreferrer">
-        <img src="https://www.google.com/s2/favicons?domain=soundcloud.com&sz=64" alt="SoundCloud" width="16" height="16">
-        soundcloud.com/agustindxm
-      </a>
     </div>
+
+    <!-- Earlier Career -->
+    <div class="earlier-career">
+      <h2>Earlier Career · QA & Testing Foundation (2014 — 2017)</h2>
+      <div class="career-entry">
+        <div class="career-entry-header">
+          <img class="company-logo" src="https://logos-api.apistemic.com/domain:globant.com" alt="Globant" onerror="this.classList.add('hidden')">
+          <h3>Globant <span>· Aug 2016 — Mar 2017</span></h3>
+        </div>
+        <div class="career-role">QA Engineer · Client: Open Bank (European Banking)</div>
+        <p>Built automation test suites and API tests for Java microservices. Selenium regression testing for frontend applications.</p>
+        <div class="tech-row"><span class="tech-pill">Java 8</span><span class="tech-pill">Selenium</span><span class="tech-pill">JMeter</span><span class="tech-pill">Jenkins</span><span class="tech-pill">Postman</span></div>
+      </div>
+      <div class="career-entry">
+        <div class="career-entry-header">
+          <img class="company-logo" src="assets/technisys-logo.png" alt="Technisys">
+          <h3>Technisys <span>· Jul 2015 — May 2016</span></h3>
+        </div>
+        <div class="career-role">QA Engineer · Financial Services</div>
+        <p>Developed regression automation for financial platforms with Selenium. Built foundational QA expertise in banking.</p>
+        <div class="tech-row"><span class="tech-pill">Java 8</span><span class="tech-pill">Selenium</span><span class="tech-pill">JUnit</span><span class="tech-pill">Cucumber</span><span class="tech-pill">Jenkins</span></div>
+      </div>
+      <div class="career-entry">
+        <div class="career-entry-header">
+          <img class="company-logo" src="https://logos-api.apistemic.com/domain:levinassets.com" alt="Levin Global" onerror="this.classList.add('hidden')">
+          <h3>Tsoft &amp; Levin Global <span>· Jun 2014 — Apr 2015</span></h3>
+        </div>
+        <div class="career-role">Test Analyst → Testing Lead</div>
+        <p>Started as Test Analyst on banking systems, promoted to QA Lead managing testing teams with Scrum.</p>
+        <div class="tech-row"><span class="tech-pill">.NET</span><span class="tech-pill">SQL</span><span class="tech-pill">JIRA</span><span class="tech-pill">HP Quality Center</span></div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-row">
+      <div class="lang-group">
+        <span><span class="lang-name">Spanish</span> Native</span>
+        <span><span class="lang-name">English</span> Professional proficiency</span>
+        <span><span class="lang-name">Portuguese</span> Conversational</span>
+      </div>
+      <span class="music-note">Musician — <a href="https://soundcloud.com/agustindxm">soundcloud.com/agustindxm</a></span>
+    </div>
+
   </main>
   </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
 <script>
-  if (new URLSearchParams(location.search).get('print') === '1') {
+  var params = new URLSearchParams(location.search);
+  if (params.get('print') === '1') {
     window.addEventListener('load', function () {
       setTimeout(function () { window.print(); }, 300);
+    });
+  }
+  if (params.get('download') === '1') {
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        var el = document.querySelector('.cv-wrapper');
+        html2pdf().set({
+          margin: [8, 6, 8, 6],
+          filename: 'Agustin_Diez_Martinez_CV.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2, useCORS: true, logging: false },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+          pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+        }).from(el).save().then(function() {
+          setTimeout(function() { window.close(); }, 1000);
+        });
+      }, 500);
     });
   }
 </script>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -323,6 +323,24 @@
       flex-shrink: 0;
       color: var(--accent);
     }
+    .contact-link {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      border-radius: 6px;
+      padding: 2px 4px;
+      margin: -2px -4px;
+      transition: background 0.2s ease;
+    }
+    .contact-link:hover {
+      background: var(--accent-bg);
+    }
+    .tz-badge {
+      font-size: 0.625rem;
+      font-weight: 600;
+      color: var(--accent);
+      opacity: 0.8;
+    }
 
     /* Social links */
     .social-links {
@@ -397,29 +415,48 @@
       padding-bottom: 6px;
       border-bottom: 1px solid var(--border-light);
     }
-    .skill-group {
-      margin-bottom: 6px;
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
-    .skill-group-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-      margin-bottom: 5px;
+    .skill-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
     }
-    .skill-pills {
+    .skill-row-label {
+      font-size: 0.5625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      width: 72px;
+      flex-shrink: 0;
+      text-align: right;
+      padding-top: 1px;
+    }
+    .skill-row-items {
       display: flex;
       flex-wrap: wrap;
       gap: 4px;
+      flex: 1;
     }
-    .skill-pill {
-      font-size: 0.6875rem;
-      padding: 3px 9px;
-      border-radius: 20px;
+    .skill-tag {
+      font-size: 0.625rem;
+      padding: 3px 8px;
+      border-radius: 4px;
       background: var(--accent-bg);
-      color: var(--accent);
-      border: 1px solid var(--accent-light);
+      color: var(--text-secondary);
       font-weight: 500;
       white-space: nowrap;
+      line-height: 1.4;
+      border: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .skill-tag:hover {
+      border-color: var(--accent-light);
+      color: var(--text);
     }
 
     /* Languages */
@@ -427,11 +464,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.8125rem;
-      padding: 4px 0;
+      font-size: 0.6875rem;
+      padding: 3px 0;
     }
-    .lang-item .lang-name { font-weight: 500; color: var(--text); }
-    .lang-item .lang-level { color: var(--text-muted); font-size: 0.75rem; }
+    .lang-item .lang-name { font-weight: 600; color: var(--text); }
+    .lang-item .lang-level { color: var(--text-muted); font-size: 0.625rem; }
 
     /* Music subtle in sidebar */
     .music-link {
@@ -511,12 +548,13 @@
     }
     .tl-year {
       position: absolute;
-      left: calc(50% + 14px);
-      font-size: 0.625rem;
+      bottom: calc(50% + 10px);
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+      font-size: 0.5625rem;
       font-weight: 600;
       color: var(--text-muted);
       opacity: 0;
-      transform: translateX(-4px);
       transition: all 0.2s ease;
       white-space: nowrap;
       pointer-events: none;
@@ -528,7 +566,7 @@
     }
     .tl-node:hover .tl-year {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateX(-50%) translateY(0);
     }
     .tl-node.active .tl-dot {
       border-color: var(--accent);
@@ -538,7 +576,7 @@
     }
     .tl-node.active .tl-year {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateX(-50%) translateY(0);
       color: var(--accent);
       font-weight: 700;
     }
@@ -845,6 +883,110 @@
       height: 12px;
     }
 
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 64px 24px 24px;
+      margin-top: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+    }
+    .cta-nebula {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 400px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.18;
+      -webkit-mask-image: radial-gradient(ellipse 50% 50% at center, black 0%, transparent 100%);
+      mask-image: radial-gradient(ellipse 50% 50% at center, black 0%, transparent 100%);
+    }
+    .cta-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .cta-heading {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-sub {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-width: 380px;
+      margin: 0 auto 22px;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      border: 1px solid var(--border-light);
+      background: var(--surface);
+      color: var(--text);
+      backdrop-filter: blur(8px);
+    }
+    .cta-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+    .cta-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Timeline canvas – knight murmurations (ambient whisper) */
+    .tl-canvas {
+      position: fixed;
+      left: calc(var(--sidebar-w) - 26px);
+      top: 0;
+      width: 100px;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.18;
+      -webkit-mask-image: radial-gradient(ellipse 40px 50% at center, black 0%, transparent 100%);
+      mask-image: radial-gradient(ellipse 40px 50% at center, black 0%, transparent 100%);
+    }
+    /* Timeline canvas – data signals (subtle accent) */
+    .tl-canvas-tunnel {
+      position: fixed;
+      left: var(--sidebar-w);
+      top: 0;
+      width: 48px;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.3;
+    }
+
     /* Footer */
     .cv-footer {
       text-align: center;
@@ -867,6 +1009,9 @@
         align-self: auto;
       }
       .timeline { display: none; }
+      .tl-canvas { display: none; }
+      .tl-canvas-tunnel { display: none; }
+      .cta-nebula { display: none; }
       .music-link { margin-bottom: 0; }
       .main-content {
         max-width: 100%;
@@ -891,6 +1036,8 @@
       body { display: block; background: white; }
       .sidebar { display: none; }
       .timeline { display: none; }
+      .tl-canvas { display: none; }
+      .tl-canvas-tunnel { display: none; }
       .theme-toggle { display: none; }
       .main-content { max-width: 100%; padding: 0; margin-left: 0; }
       .experience, .earlier-career {
@@ -900,6 +1047,7 @@
         box-shadow: none;
       }
       .testimonial { display: none; }
+      .cta-section { display: none; }
     }
   </style>
 </head>
@@ -932,14 +1080,15 @@
           agustindxm@gmail.com
           <span class="copy-toast">Copied!</span>
         </div>
-        <div class="contact-item">
+        <a href="tel:+5491122965128" class="contact-item contact-link copyable" data-copy="+54 9 1122965128">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           +54 9 1122965128
-        </div>
-        <div class="contact-item">
+          <span class="copy-toast">Copied!</span>
+        </a>
+        <a href="https://www.google.com/maps/place/Tandil,+Buenos+Aires,+Argentina" target="_blank" rel="noopener" class="contact-item contact-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-          Tandil, Buenos Aires, Argentina
-        </div>
+          Tandil, Argentina · <span class="tz-badge">UTC−3</span>
+        </a>
       </div>
 
       <div class="social-links">
@@ -953,7 +1102,7 @@
             GitHub
           </a>
         </div>
-        <a href="CV-export.html?print=1" class="download-btn" target="_blank" rel="noopener noreferrer" title="Download CV as PDF">
+        <a href="CV-export.html?download=1" class="download-btn" target="_blank" rel="noopener noreferrer" title="Download CV as PDF">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download CV
         </a>
@@ -962,50 +1111,67 @@
       <!-- Skills Matrix -->
       <div class="sidebar-section">
         <div class="sidebar-section-title">Core Skills</div>
-        <div class="skill-group">
-          <div class="skill-group-label">Frontend</div>
-          <div class="skill-pills">
-            <span class="skill-pill">Angular</span>
-            <span class="skill-pill">React</span>
-            <span class="skill-pill">Vue</span>
-            <span class="skill-pill">TypeScript</span>
-            <span class="skill-pill">RxJS</span>
-            <span class="skill-pill">NgRx</span>
-            <span class="skill-pill">Signals</span>
+        <div class="skills-grid">
+          <div class="skill-row">
+            <span class="skill-row-label">Frontend</span>
+            <div class="skill-row-items">
+              <span class="skill-tag">Angular</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Vue</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">RxJS</span>
+              <span class="skill-tag">NgRx</span>
+              <span class="skill-tag">Signals</span>
+            </div>
           </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-label">Architecture</div>
-          <div class="skill-pills">
-            <span class="skill-pill">Design Systems</span>
-            <span class="skill-pill">Component Libraries</span>
-            <span class="skill-pill">Micro-frontends</span>
-            <span class="skill-pill">Nx Monorepo</span>
+          <div class="skill-row">
+            <span class="skill-row-label">Architecture</span>
+            <div class="skill-row-items">
+              <span class="skill-tag">Design Systems</span>
+              <span class="skill-tag">Component Libraries</span>
+              <span class="skill-tag">Micro-frontends</span>
+              <span class="skill-tag">Nx Monorepo</span>
+              <span class="skill-tag">Dev Containers</span>
+              <span class="skill-tag">Docker</span>
+            </div>
           </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-label">Cloud & DevOps</div>
-          <div class="skill-pills">
-            <span class="skill-pill">Azure DevOps</span>
-            <span class="skill-pill">GCP</span>
-            <span class="skill-pill">Jenkins</span>
-            <span class="skill-pill">CI/CD</span>
+          <div class="skill-row">
+            <span class="skill-row-label">DevOps</span>
+            <div class="skill-row-items">
+              <span class="skill-tag">Azure DevOps</span>
+              <span class="skill-tag">GCP</span>
+              <span class="skill-tag">Jenkins</span>
+              <span class="skill-tag">CI/CD</span>
+            </div>
           </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-label">AI Workflow</div>
-          <div class="skill-pills">
-            <span class="skill-pill">Claude</span>
-            <span class="skill-pill">Cursor</span>
+          <div class="skill-row">
+            <span class="skill-row-label">AI</span>
+            <div class="skill-row-items">
+              <span class="skill-tag">Claude</span>
+              <span class="skill-tag">Cursor</span>
+              <span class="skill-tag">OpenCode</span>
+              <span class="skill-tag">Ollama</span>
+            </div>
           </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-label">Leadership</div>
-          <div class="skill-pills">
-            <span class="skill-pill">Team Mentoring</span>
-            <span class="skill-pill">SCRUM</span>
-            <span class="skill-pill">Technical Strategy</span>
-            <span class="skill-pill">Code Reviews</span>
+          <div class="skill-row">
+            <span class="skill-row-label">Leadership</span>
+            <div class="skill-row-items">
+              <span class="skill-tag">Team Mentoring</span>
+              <span class="skill-tag">SCRUM</span>
+              <span class="skill-tag">Technical Strategy</span>
+              <span class="skill-tag">Code Reviews</span>
+              <span class="skill-tag">Jira</span>
+              <span class="skill-tag">Azure Boards</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-row-label">Ownership</span>
+            <div class="skill-row-items">
+              <span class="skill-tag">Client Demos</span>
+              <span class="skill-tag">Stakeholder Alignment</span>
+              <span class="skill-tag">Release Coordination</span>
+              <span class="skill-tag">Sprint Planning</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1020,6 +1186,10 @@
         <div class="lang-item">
           <span class="lang-name">English</span>
           <span class="lang-level">Professional proficiency</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">Portuguese</span>
+          <span class="lang-level">Conversational</span>
         </div>
       </div>
 
@@ -1289,11 +1459,24 @@
       </div>
     </div>
 
+    <div class="cta-section">
+      <canvas class="cta-nebula" id="ctaNebula"></canvas>
+      <div class="cta-heading">Let's build something remarkable.</div>
+      <p class="cta-sub">If my work resonates with what you're looking for, I'd welcome the conversation.</p>
+      <div class="cta-links">
+        <a href="mailto:agustindxm@gmail.com" class="cta-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Send an email</a>
+        <a href="https://www.linkedin.com/in/agustin-diez-martinez-76759a60/" target="_blank" rel="noopener" class="cta-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Connect on LinkedIn</a>
+      </div>
+    </div>
+
     <footer class="cv-footer">
       Built with code, caffeine, and a little help from AI.
     </footer>
 
   </main>
+
+  <canvas class="tl-canvas" id="tlCanvas"></canvas>
+  <canvas class="tl-canvas-tunnel" id="tlTunnel"></canvas>
 
 <script>
 (function() {
@@ -1302,7 +1485,7 @@
   var root = document.documentElement;
   var saved = localStorage.getItem('theme');
   if (saved) root.setAttribute('data-theme', saved);
-  else root.setAttribute('data-theme', 'light');
+  else root.setAttribute('data-theme', 'dark');
 
   function updateIcon() {
     var t = root.getAttribute('data-theme');
@@ -1328,7 +1511,7 @@
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-  document.querySelectorAll('.experience, .earlier-career, .testimonial').forEach(function(el) {
+  document.querySelectorAll('.experience, .earlier-career, .testimonial, .cta-section').forEach(function(el) {
     observer.observe(el);
   });
 
@@ -1352,6 +1535,243 @@
   }
 
   var ticking = false;
+
+  // --- Knight Murmurations canvas on timeline ---
+  var cvs = document.getElementById('tlCanvas');
+  var ctx = cvs.getContext('2d');
+  var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#96764a';
+
+  var knightMoves = [
+    [2,1],[2,-1],[-2,1],[-2,-1],
+    [1,2],[1,-2],[-1,2],[-1,-2]
+  ];
+  var flockSize = 72;
+  var clusterCount = 3;
+  var birds = [];
+  var boardW = 100, boardH;
+
+  function hexToRgb(hex) {
+    var r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
+    return [r, g, b];
+  }
+
+  function initBirds() {
+    birds = [];
+    var positions = [0.25, 0.5, 0.75];
+    var perCluster = Math.floor(flockSize / clusterCount);
+    for (var c = 0; c < clusterCount; c++) {
+      for (var i = 0; i < perCluster; i++) {
+        birds.push({
+          x: Math.floor(boardW / 2),
+          y: Math.floor(boardH * positions[c])
+        });
+      }
+    }
+  }
+
+  function resizeMurmCanvas() {
+    var dpr = window.devicePixelRatio || 1;
+    boardW = 100;
+    boardH = window.innerHeight;
+    cvs.width = boardW * dpr;
+    cvs.height = boardH * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#96764a';
+    ctx.clearRect(0, 0, boardW, boardH);
+    initBirds();
+  }
+  resizeMurmCanvas();
+  window.addEventListener('resize', resizeMurmCanvas);
+
+  function stepMurmuration() {
+    var rgb = hexToRgb(accentColor);
+
+    ctx.save();
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.fillStyle = 'rgba(0,0,0,0.002)';
+    ctx.fillRect(0, 0, boardW, boardH);
+    ctx.restore();
+
+    ctx.fillStyle = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.012)';
+    for (var i = 0; i < birds.length; i++) {
+      var m = knightMoves[Math.floor(Math.random() * 8)];
+      birds[i].x += m[0];
+      birds[i].y += m[1];
+      if (birds[i].x < 0) birds[i].x += boardW;
+      else if (birds[i].x >= boardW) birds[i].x -= boardW;
+      if (birds[i].y < 0) birds[i].y += boardH;
+      else if (birds[i].y >= boardH) birds[i].y -= boardH;
+      ctx.fillRect(birds[i].x, birds[i].y, 1, 1);
+    }
+  }
+
+  for (var pf = 0; pf < 800; pf++) { stepMurmuration(); }
+
+  function animateMurmuration() {
+    requestAnimationFrame(animateMurmuration);
+    stepMurmuration();
+  }
+  animateMurmuration();
+
+  // --- Data Tunnel overlay on timeline ---
+  var tCvs = document.getElementById('tlTunnel');
+  var tCtx = tCvs.getContext('2d');
+  var tLineCount = 5;
+  var tSignals = [];
+  var tAccent = accentColor;
+
+  function resizeTunnel() {
+    var dpr = window.devicePixelRatio || 1;
+    tCvs.width = 48 * dpr;
+    tCvs.height = window.innerHeight * dpr;
+    tCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    tAccent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#96764a';
+  }
+  resizeTunnel();
+  window.addEventListener('resize', resizeTunnel);
+
+  for (var ts = 0; ts < 4; ts++) {
+    tSignals.push({
+      lane: Math.floor(Math.random() * tLineCount),
+      progress: Math.random(),
+      speed: 0.0003 + Math.random() * 0.0005,
+      trail: 0.025 + Math.random() * 0.015
+    });
+  }
+
+  function getTunnelX(i, y, h) {
+    var spread = (i / (tLineCount - 1) - 0.5) * 10;
+    var ratio = y / h;
+    var converge = Math.pow(ratio, 1.5);
+    return 24 + spread * (1 - converge);
+  }
+
+  var tTime = 0;
+  function drawTunnel() {
+    requestAnimationFrame(drawTunnel);
+    tTime += 0.016;
+    var w = 48, h = window.innerHeight;
+    tCtx.clearRect(0, 0, w, h);
+    var rgb = hexToRgb(tAccent);
+
+    for (var i = 0; i < tLineCount; i++) {
+      tCtx.beginPath();
+      for (var y = h; y >= 0; y -= 6) {
+        var wave = Math.sin(tTime * 0.8 + y * 0.006 + i) * 0.6 * (1 - y / h);
+        var x = getTunnelX(i, y, h) + wave;
+        if (y === h) tCtx.moveTo(x, y);
+        else tCtx.lineTo(x, y);
+      }
+      tCtx.strokeStyle = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.04)';
+      tCtx.lineWidth = 0.4;
+      tCtx.stroke();
+    }
+
+    for (var s = 0; s < tSignals.length; s++) {
+      var sig = tSignals[s];
+      sig.progress -= sig.speed;
+      if (sig.progress < 0) {
+        sig.progress = 1;
+        sig.lane = Math.floor(Math.random() * tLineCount);
+      }
+      var sy = sig.progress * h;
+      var sx = getTunnelX(sig.lane, sy, h);
+      var wave2 = Math.sin(tTime * 0.8 + sy * 0.006 + sig.lane) * 0.6 * (1 - sy / h);
+      sx += wave2;
+      var trailLen = sig.trail * h;
+      var grad = tCtx.createLinearGradient(sx, sy, sx, sy + trailLen);
+      grad.addColorStop(0, 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.35)');
+      grad.addColorStop(1, 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0)');
+      tCtx.beginPath();
+      for (var t = 0; t <= 1; t += 0.05) {
+        var ty = sy + t * trailLen;
+        if (ty > h) break;
+        var tx = getTunnelX(sig.lane, ty, h) + Math.sin(tTime * 0.8 + ty * 0.006 + sig.lane) * 0.6 * (1 - ty / h);
+        if (t === 0) tCtx.moveTo(tx, ty);
+        else tCtx.lineTo(tx, ty);
+      }
+      tCtx.strokeStyle = grad;
+      tCtx.lineWidth = 0.6;
+      tCtx.stroke();
+
+      tCtx.beginPath();
+      tCtx.arc(sx, sy, 1, 0, Math.PI * 2);
+      tCtx.fillStyle = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.3)';
+      tCtx.fill();
+    }
+  }
+  drawTunnel();
+
+  // --- CTA Nebula ---
+  var ctaCvs = document.getElementById('ctaNebula');
+  var ctaCtx = ctaCvs.getContext('2d');
+  var ctaBirds = [];
+  var ctaW, ctaH;
+  var ctaKnightMoves = knightMoves;
+
+  function initCtaBirds() {
+    ctaBirds = [];
+    for (var i = 0; i < 128; i++) {
+      ctaBirds.push({ x: Math.floor(ctaW / 2), y: Math.floor(ctaH / 2) });
+    }
+  }
+
+  var ctaFrame = 0;
+  var ctaMaxFrames = 6000;
+
+  function resizeCtaNebula() {
+    var dpr = window.devicePixelRatio || 1;
+    ctaW = 700;
+    ctaH = 400;
+    ctaCvs.width = ctaW * dpr;
+    ctaCvs.height = ctaH * dpr;
+    ctaCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctaCtx.clearRect(0, 0, ctaW, ctaH);
+    initCtaBirds();
+    ctaFrame = 0;
+    for (var p = 0; p < 800; p++) { stepCtaNebula(); }
+  }
+  resizeCtaNebula();
+  window.addEventListener('resize', resizeCtaNebula);
+
+  function stepCtaNebula() {
+    if (ctaFrame >= ctaMaxFrames) return;
+    ctaFrame++;
+    var rgb = hexToRgb(accentColor);
+    ctaCtx.fillStyle = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.025)';
+    for (var i = 0; i < ctaBirds.length; i++) {
+      var m = ctaKnightMoves[Math.floor(Math.random() * 8)];
+      ctaBirds[i].x += m[0];
+      ctaBirds[i].y += m[1];
+      if (ctaBirds[i].x < 0) ctaBirds[i].x += ctaW;
+      else if (ctaBirds[i].x >= ctaW) ctaBirds[i].x -= ctaW;
+      if (ctaBirds[i].y < 0) ctaBirds[i].y += ctaH;
+      else if (ctaBirds[i].y >= ctaH) ctaBirds[i].y -= ctaH;
+      ctaCtx.fillRect(ctaBirds[i].x, ctaBirds[i].y, 2, 2);
+    }
+  }
+
+  function animateCtaNebula() {
+    requestAnimationFrame(animateCtaNebula);
+    stepCtaNebula();
+  }
+  animateCtaNebula();
+
+  // Update accent color on theme change
+  toggle.addEventListener('click', function() {
+    setTimeout(function() {
+      accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#96764a';
+      tAccent = accentColor;
+      ctx.clearRect(0, 0, boardW, boardH);
+      initBirds();
+      for (var pf = 0; pf < 800; pf++) { stepMurmuration(); }
+      ctaCtx.clearRect(0, 0, ctaW, ctaH);
+      initCtaBirds();
+      ctaFrame = 0;
+      for (var cpf = 0; cpf < 800; cpf++) { stepCtaNebula(); }
+    }, 100);
+  });
+
   window.addEventListener('scroll', function() {
     if (!ticking) {
       requestAnimationFrame(function() {
@@ -1364,7 +1784,11 @@
   updateNav();
 
   document.querySelectorAll('.copyable').forEach(function(el) {
-    el.addEventListener('click', function() {
+    el.addEventListener('click', function(e) {
+      var isTel = el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href').startsWith('tel:');
+      var isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      if (isTel && isMobile) return;
+      e.preventDefault();
       var text = el.getAttribute('data-copy');
       var toast = el.querySelector('.copy-toast');
       navigator.clipboard.writeText(text).then(function() {
