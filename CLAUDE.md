@@ -20,6 +20,10 @@ CV.md              Markdown source of the CV content
 avatar.jpg         Profile photo
 assets/            Company logos (dualboot, trenda, overactive, xoor, technisys)
 LINKEDIN_UPDATES.md  LinkedIn recommendation quotes used in testimonials
+CLAUDE.md          Project context file for Claude Code (this file)
+.gitignore         Git ignore rules
+.claude/settings.json         Claude Code project settings
+.claude/commands/update-context.md  Custom /update-context slash command
 ```
 
 ## Architecture
@@ -158,3 +162,4 @@ Caddy automatically obtains SSL certificates for each domain.
 | Date | Summary |
 |------|---------|
 | 2026-02-20 | Initial project setup: CV-web.html with full i18n (EN/ES/PT), theming, canvas animations, testimonials. CV-export.html with PDF generation. VPS configured on Vultr with Caddy. Domain `agustindiezcv.com.ar` registered, DNS delegated to Cloudflare. Waiting for NIC.ar propagation. |
+| 2026-02-20 | Diagnosed DNS non-propagation (NXDOMAIN — NIC.ar still pending). Rotated GitHub PAT (old token was exposed in git remote URL). Pulled latest commit (99ad7eb: About section + i18n updates). Updated CLAUDE.md with new project files (.claude/, .gitignore, CLAUDE.md). |
